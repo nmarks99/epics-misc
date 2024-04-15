@@ -14,8 +14,7 @@ class Record:
         if prefix:
             print(f"[{self.type}] {self.name}") 
         else:
-            name_out =  self.name.replace("$(P)", "")
-            name_out =  name_out.replace("$(R)", "")
+            name_out =  self.name.replace("$(P)$(R)", "")
             print(f"[{self.type}] {name_out}") 
         
 
@@ -32,8 +31,10 @@ class EPICSDatabase:
             lines = rec_txt.split("\n")
             record = Record()
             for ln in lines:
-                line = ln.strip()
-                if len(line) > 1:
+                line = ln.replace("{", "").replace("}","").strip()
+                if line.startswith("#"):
+                    continue
+                if len(line) > 0:
                     if "field" in line:
                         field_split = line[line.find("(")+1:line.rfind(")")].strip().split(",")
                         field_val = ",".join(field_split[1:])
@@ -44,14 +45,14 @@ class EPICSDatabase:
                     else: # record definition line
                         line = line.replace('"','').replace("'", "")
                         rec_split = line[line.find("(")+1:line.rfind(")")].strip().split(",")
-                        record.type=rec_split[0]
-                        record.name=rec_split[1]
+                        record.type=rec_split[0].strip()
+                        record.name=rec_split[1].strip()
 
             if len(record.name) > 0:
                 self.database.append(record)
     
 
-    def show_all(self,prefix=False, fields=False):
+    def show_all(self,prefix=True, fields=False):
         for record in self.database:
             if prefix:
                 record.show()
@@ -62,13 +63,27 @@ class EPICSDatabase:
                     print(f"{k} = {v}")
                 print("\n")
 
+    def find(self, name: str) -> Record:
+        record_out = None
+        for r in self.database:
+            if r.name == name or r.name.replace("$(P)$(R)","") == name:
+                record_out = r
+        return record_out
+
 
 if __name__ == "__main__":
-    assert len(sys.argv) > 1
+    assert len(sys.argv) > 1 and len(sys.argv) <= 3, "invalid input"
     path = sys.argv[1]
     db = EPICSDatabase(path)
-    db.show_all()
-
-
-
-
+    
+    if len(sys.argv) == 2:
+        db.show_all()
+    
+    elif len(sys.argv) == 3:
+        record_in = sys.argv[2]
+        r = db.find(record_in)
+        if r is not None:
+            print(f"[{r.type}] {r.name}")
+            for k, v in r.fields.items():
+                print(f"{k} = {v}")
+    
