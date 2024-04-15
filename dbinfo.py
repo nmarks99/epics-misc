@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # TODO:
-# - handle comments
+# - handle inline comments
 # - test with random databases on APSshare
 
 from dataclasses import dataclass
