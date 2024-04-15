@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+# TODO:
+# - use argparse
+# - handle comments
+# - test with random databases on APSshare
+
 from dataclasses import dataclass
 from dataclasses import field as dataclass_field
 import sys
@@ -17,7 +22,6 @@ class Record:
             name_out =  self.name.replace("$(P)$(R)", "")
             print(f"[{self.type}] {name_out}") 
         
-
 
 class EPICSDatabase:
     def __init__(self, path):
@@ -86,4 +90,5 @@ if __name__ == "__main__":
             print(f"[{r.type}] {r.name}")
             for k, v in r.fields.items():
                 print(f"{k} = {v}")
-    
+        else:
+            print(f"Record {record_in} not found")
