@@ -19,7 +19,7 @@ class Record:
         if prefix:
             print(f"[{self.type}] {self.name}") 
         else:
-            name_out =  self.name.replace("$(P)$(R)", "")
+            name_out =  self.name.replace("$(P)", "").replace("$(R)", "")
             print(f"[{self.type}] {name_out}") 
         
 
@@ -70,7 +70,7 @@ class EPICSDatabase:
     def find(self, name: str) -> Record:
         record_out = None
         for r in self.database:
-            if r.name == name or r.name.replace("$(P)$(R)","") == name:
+            if r.name == name or r.name.replace("$(P)","").replace("$(R)", "") == name:
                 record_out = r
         return record_out
 
