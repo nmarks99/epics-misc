@@ -27,6 +27,8 @@ from dataclasses import dataclass
 from dataclasses import field as dataclass_field
 import argparse
 
+COMMENT_CHAR = "#"
+
 @dataclass
 class Record:
     type: str = ""
@@ -54,8 +56,10 @@ class EPICSDatabase:
             record = Record()
             for ln in lines:
                 line = ln.replace("{", "").replace("}","").strip()
-                if line.startswith("#"):
+                if line.startswith(COMMENT_CHAR):
                     continue
+                if COMMENT_CHAR in line:
+                    line = line[0:line.find(COMMENT_CHAR)]
                 if len(line) > 0:
                     if "field" in line:
                         field_split = line[line.find("(")+1:line.rfind(")")].strip().split(",")
