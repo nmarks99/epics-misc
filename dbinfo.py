@@ -6,7 +6,6 @@
 
 from dataclasses import dataclass
 from dataclasses import field as dataclass_field
-import sys
 import argparse
 
 @dataclass
@@ -55,6 +54,8 @@ class EPICSDatabase:
             if len(record.name) > 0:
                 self.database.append(record)
     
+    def __iter__(self):
+        return iter(self.database)
 
     def show_all(self,prefix=True, fields=False):
         for record in self.database:
