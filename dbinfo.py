@@ -1,5 +1,24 @@
 #!/usr/bin/env python3
 
+'''
+dbinfo.py
+
+Easily get information about an EPICS database.
+Can be used as a command line tool or imported as a library.
+
+Example: 
+Load a database and iterate through the records it defines
+```
+from dbinfo import EPICSDatabase
+db = EPICSDatabase("my_database.db")
+for record in db:
+    print(record.type, record.name)
+    for field, value in record.fields.items():
+        print(field, value)
+```
+
+'''
+
 # TODO:
 # - handle inline comments
 # - test with random databases on APSshare
