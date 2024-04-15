@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 # TODO:
-# - use argparse
 # - handle comments
 # - test with random databases on APSshare
 
 from dataclasses import dataclass
 from dataclasses import field as dataclass_field
 import sys
+import argparse
 
 @dataclass
 class Record:
@@ -76,19 +76,21 @@ class EPICSDatabase:
 
 
 if __name__ == "__main__":
-    assert len(sys.argv) > 1 and len(sys.argv) <= 3, "invalid input"
-    path = sys.argv[1]
-    db = EPICSDatabase(path)
-    
-    if len(sys.argv) == 2:
-        db.show_all()
-    
-    elif len(sys.argv) == 3:
-        record_in = sys.argv[2]
-        r = db.find(record_in)
+    parser = argparse.ArgumentParser(description='Quickly get information from an EPICS database')
+    parser.add_argument('path', help='Path to the database file')
+    parser.add_argument('record', nargs='?', help='Record name to find and print infomation about')
+    args = parser.parse_args()
+
+    db = EPICSDatabase(args.path)
+
+    if args.record is not None:
+        r = db.find(args.record)
         if r is not None:
             print(f"[{r.type}] {r.name}")
             for k, v in r.fields.items():
                 print(f"{k} = {v}")
         else:
-            print(f"Record {record_in} not found")
+            print(f"Record {args.record} not found")
+
+    else:
+        db.show_all()
