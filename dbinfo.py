@@ -49,12 +49,28 @@ class EPICSDatabase:
 
         with open(path, "r") as f:
             contents = f.read()
+        
+        # sometimes grecord is used, replace with record for splitting
+        contents = contents.replace("grecord(", "record(")
 
-        rec_list_raw = contents.split("record")
-        for rec_txt in rec_list_raw:
-            lines = rec_txt.split("\n")
+        # get rid of anything before the first record
+        contents = contents[contents.find("record("):]
+    
+        # split by 'record(' then add back the '('
+        # the outer open/close parenthesis are used to find the
+        # record type and name and must not affect the prefixes
+        rec_list_raw = contents.split("record(")
+        rec_list_fix = []
+        for rec in rec_list_raw:
+            if len(rec) > 0:
+                rec_list_fix.append("".join(["(",rec]))
+            
+        for rec_str in rec_list_fix:
+            # split each record string by lines and create a Record object
+            lines = rec_str.splitlines()
             record = Record()
             for ln in lines:
+                # get rid of brackets and comments on each line
                 line = ln.replace("{", "").replace("}","").strip()
                 if line.startswith(COMMENT_CHAR):
                     continue
@@ -62,13 +78,15 @@ class EPICSDatabase:
                     line = line[0:line.find(COMMENT_CHAR)]
                 if len(line) > 0:
                     if "field" in line:
+                        # fill in the fields dictionary
                         field_split = line[line.find("(")+1:line.rfind(")")].strip().split(",")
                         field_val = ",".join(field_split[1:])
                         field_val = field_val.strip()
                         field_name = field_split[0]
                         record.fields.update({str(field_name) : field_val})
 
-                    else: # record definition line
+                    else:
+                        # record definition line (record tpye and name)
                         line = line.replace('"','').replace("'", "")
                         rec_split = line[line.find("(")+1:line.rfind(")")].strip().split(",")
                         record.type=rec_split[0].strip()
