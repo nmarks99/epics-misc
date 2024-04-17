@@ -20,6 +20,17 @@ if __name__ == "__main__":
             print(f"Record {args.record} not found")
 
     else:
+        # get the length of the record types so we can align the output
+        record_type_max_len = 0
+        for record in db:
+            length = len(record.type)
+            if length > record_type_max_len:
+                record_type_max_len = length
+
         print(f"Number of records: {len(db.database)}")
         for record in db:
-            print(record)
+            space_to_add = record_type_max_len - len(record.type)
+            record_type = "".join([record.type, " "*space_to_add])
+            print(f"{record_type}  {record.name}")
+
+            
