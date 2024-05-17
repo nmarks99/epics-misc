@@ -1,0 +1,18 @@
+record(ao, "$(P)value") {
+    field(VAL, 3.14)
+}
+
+# INPA, INPB, etc. store the value in lua variables
+# A, B, etc that can be used in lua code (CODE field)
+record(luascript, "$(P)lua_ex1") {
+    field(INPA, "$(P)value")
+    field(CODE, "print(string.format('A = %f', A))")
+}
+
+# Can also call functions from a lua script
+# which can be stored in the iocxxx directory or 
+# you can do epicsEnvSet("LUA_SCRIPT_PATH", "path/to/lua/scripts")
+record(luascript, "$(P)lua_ex2") {
+    field(INPA, "$(P)value")
+    field(CODE, "@script1.lua foo()")
+}
