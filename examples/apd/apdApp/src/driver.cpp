@@ -1,9 +1,12 @@
+#include <chrono>
 #include <epicsExport.h>
 #include <epicsThread.h>
 #include <iocsh.h>
 #include <iostream>
 
 #include "driver.hpp"
+
+constexpr int PROCESS_DURATION = 5000; // milliseconds
 
 static void poll_thread_C(void *pPvt) {
     SimpleApd *pSimpleApd = (SimpleApd *)pPvt;
@@ -17,7 +20,10 @@ SimpleApd::SimpleApd(const char *asyn_port, const char *dev_port)
                      ASYN_MULTIDEVICE | ASYN_CANBLOCK,
                      1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=1, autoConnect=1 */
                      0, 0),
-      poll_time_(DEFAULT_POLL_TIME), count_(0) {
+      poll_time_(DEFAULT_POLL_TIME) {
+
+    createParam(DONE_STRING, asynParamInt32, &doneIndex_);
+    createParam(START_PROCESS_STRING, asynParamInt32, &startProcessIndex_);
 
     epicsThreadCreate("SimpleApdPoller", epicsThreadPriorityLow,
                       epicsThreadGetStackSize(epicsThreadStackMedium), (EPICSTHREADFUNC)poll_thread_C, this);
@@ -27,13 +33,43 @@ void SimpleApd::poll() {
     while (true) {
         lock();
 
-	std::cout << "Hello World "  << this->count_ << std::endl;
-	this->count_ += 1;
+        if (running_) {
+            setIntegerParam(doneIndex_, 0);
+            std::chrono::duration<double> dur = std::chrono::steady_clock::now() -  t0_;
+            double elap_ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+            std::cout << "Elapsed: " << elap_ms << " ms" << std::endl;
+            if (elap_ms >= PROCESS_DURATION) {
+                setIntegerParam(doneIndex_, 1);
+                std::cout << "Process Done" << std::endl;
+                running_ = false;
+            }
+        } else {
+            setIntegerParam(doneIndex_, 1);
+        }
+            
 
         callParamCallbacks();
         unlock();
         epicsThreadSleep(poll_time_);
     }
+}
+
+
+asynStatus SimpleApd::writeInt32(asynUser *pasynUser, epicsInt32 value) {
+    int function = pasynUser->reason;
+    asynStatus status = asynSuccess;
+
+    if (function == startProcessIndex_) {
+        if (not running_) {
+            std::cout << "Starting process..." << std::endl;
+            running_ = true;
+            this->t0_ = std::chrono::steady_clock::now();
+        } else {
+            std::cout << "Please wait for previous process to finish" << std::endl;
+        }
+    }
+    
+    return status;
 }
 
 

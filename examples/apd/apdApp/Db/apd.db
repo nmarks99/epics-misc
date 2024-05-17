@@ -1,0 +1,14 @@
+record(bi, "$(P)Done")
+{
+    field(DTYP, "asynInt32")
+    field(ONAM, "Done")
+    field(ZNAM, "Running")
+    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT=1))DONE")
+    field(VAL, 1)
+    field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(P)StartProcess") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT=1))START_PROCESS")
+}

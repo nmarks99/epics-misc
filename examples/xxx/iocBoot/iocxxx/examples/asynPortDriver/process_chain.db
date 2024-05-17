@@ -1,0 +1,32 @@
+# In this example, the asynPortDriver has a RUN_PROCESS parameter, which
+# can be written to via the xxx:RunProcess record. When the xxx:RunProcess
+# record processes, an aynchronous process starts on the device. In a real
+# scenario, this could be moving a motor to a target position, however in
+# this example it simply counts to 5 seconds to simulate some process that
+# takes real time to complete. There is also another PV, xxx:Done which is 1
+# when the asynchronous process is done, and 0 when the process is running.
+#
+# In this example, we want to run this process several times, however we must
+# wait for the previous process to finish before starting the next one.
+# TODO: HOW???
+
+
+record(calcout, "$(P)ProcessStarted") {
+    field(INPA, "$(P)Done.RVAL CP")
+    field(OOPT, "Transition To Zero")
+    field(CALC, "A")
+    field(OUT, "print_started.PROC")
+}
+record(luascript, "print_started") {
+    field(CODE, "print('[lua] process started')")
+}
+
+record(calcout, "$(P)ProcessFinished") {
+    field(INPA, "$(P)Done.RVAL CP")
+    field(OOPT, "Transition To Non-zero")
+    field(CALC, "A")
+    field(OUT, "print_stopped.PROC")
+}
+record(luascript, "print_stopped") {
+    field(CODE, "print('[lua] process finished')")
+}

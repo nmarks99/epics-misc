@@ -8,7 +8,7 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 # Load examples
 < examples/luascript/lua_example.cmd
-# < examples/asynPortDriver/simple_apd.cmd
+< examples/asynPortDriver/simple_apd.cmd
 
 ###############################################################################
 iocInit
