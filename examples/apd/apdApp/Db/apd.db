@@ -8,7 +8,7 @@ record(bi, "$(P)Done")
     field(SCAN, "I/O Intr")
 }
 
-record(bo, "$(P)StartProcess") {
+record(longout, "$(P)StartProcess") {
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT=1))START_PROCESS")
 }

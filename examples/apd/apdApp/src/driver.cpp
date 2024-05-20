@@ -61,7 +61,7 @@ asynStatus SimpleApd::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 
     if (function == startProcessIndex_) {
         if (not running_) {
-            std::cout << "Starting process..." << std::endl;
+            std::cout << "Starting process [" << value << "]" << std::endl;
             running_ = true;
             this->t0_ = std::chrono::steady_clock::now();
         } else {
