@@ -1,0 +1,8 @@
+record(longout, "$(P)LongValue" ) {
+    field(VAL, "3")
+}
+
+record(sub, "$(P)SubExample") {
+    field(INPA, "$(P)LongValue.VAL")
+    field(SNAM, "sub_example")
+}

@@ -7,8 +7,9 @@ dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 # Load examples
-< examples/luascript/lua_example.cmd
-< examples/asynPortDriver/simple_apd.cmd
+# < examples/luascript/lua_example.cmd
+# < examples/asynPortDriver/simple_apd.cmd
+dbLoadRecords("$(TOP)/db/csub.db","P=$(PREFIX)")
 
 ###############################################################################
 iocInit
