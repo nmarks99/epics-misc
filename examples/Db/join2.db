@@ -1,4 +1,4 @@
-# Creates a soft motor that moves three axes together by the same amount.
+# Creates a soft motor that moves two axes together by the same amount.
 
 record(motor, "$(P)$(SM)") {
     field(DTYP, "Soft Channel")
@@ -38,14 +38,13 @@ record(transform,"$(P)$(SM)_ableput") {
     field(OUTC,"$(P)$(SM).DISA NPP NMS")
 }
 
-# Readback is average of the three motors, although they should
+# Readback is average of the two motors, although they should
 # all be the same if only moved through this soft motor
 record(calcout, "$(P)$(SM):AvgReadback") {
     field(DTYP, "Soft Channel")
     field(INPA, "$(P)$(M1).RBV CP")
     field(INPB, "$(P)$(M2).RBV CP")
-    field(INPC, "$(P)$(M3).RBV CP")
-    field(CALC, "(A + B + C) / 3")
+    field(CALC, "(A + B) / 2")
     field(PINI, "YES")
 }
 
@@ -54,8 +53,7 @@ record(calcout, "$(P)$(SM):Done") {
     field(DTYP, "Soft Channel")
     field(INPA, "$(P)$(M1).DMOV CP")
     field(INPB, "$(P)$(M2).DMOV CP")
-    field(INPC, "$(P)$(M3).DMOV CP")
-    field(CALC,"A & B & C")
+    field(CALC,"A & B")
     field(PINI, "YES")
 }
 
@@ -65,14 +63,12 @@ record(ao, "$(P)$(SM):Position") {
     field(FLNK, "$(P)$(SM):set_all.PROC")
 }
 
-# Sets $(M1).VAL, $(M2).VAL and $(M3).VAL to $(P)$(SM):Position.VAL
+# Sets $(M1).VAL and $(M2).VAL to $(P)$(SM):Position.VAL
 record(seq, "$(P)$(SM):set_all") {
     field(DOL0, "$(P)$(SM):Position.VAL")
     field(LNK0, "$(P)$(M1).VAL CP")
     field(DOL1, "$(P)$(SM):Position.VAL")
     field(LNK1, "$(P)$(M2).VAL CP")
-    field(DOL2, "$(P)$(SM):Position.VAL")
-    field(LNK2, "$(P)$(M3).VAL CP")
 }
 
 # Stops all three motors
@@ -81,8 +77,6 @@ record(seq, "$(P)$(SM):stop_all"){
     field(LNK0, "$(P)$(M1).STOP CP")
     field(DOL1, "1")
     field(LNK1, "$(P)$(M2).STOP CP")
-    field(DOL2, "1")
-    field(LNK2, "$(P)$(M3).STOP CP")
 }
 
 
