@@ -147,7 +147,7 @@ def main():
         motors.append(_motor)
 
     # save to text files
-    with open(f"{prefix.replace(":","")}_all_motors.txt", "w") as file:
+    with open(f"{prefix.replace(':','')}_all_motors.txt", "w") as file:
         for motor in motors:
             pv_name = motor["PV_NAME"]
             for k, v in motor.items():
