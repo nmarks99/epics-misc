@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 from epics import caget
-#  from pathlib import Path
-#  Path("/my/directory").mkdir(parents=True, exist_ok=True)
 
-PREFIX = "4ida:"
-#  motor_list = range(1,13+1)
+# TODO: make args with argparse
+prefix = "4ida:"
+motor_list = list(range(1,13+1))
 
 fields = [
     "DESC",
@@ -134,13 +133,10 @@ fields = [
 
 def main():
 
-    #  mrange = (1, 13)
-    mrange = (1, 2)
-
     motors = []
     
-    for i in range(mrange[0], mrange[1]+1):
-        pv_name = f"{PREFIX}m{i}"
+    for i in motor_list:
+        pv_name = f"{prefix}m{i}"
         print(f"Getting {pv_name} ...")
 
         _motor = dict()
@@ -150,7 +146,8 @@ def main():
             _motor[field] = val
         motors.append(_motor)
 
-    with open("4ida_motors.txt", "w") as file:
+    # save to text files
+    with open(f"{prefix.replace(":","")}_all_motors.txt", "w") as file:
         for motor in motors:
             pv_name = motor["PV_NAME"]
             for k, v in motor.items():
