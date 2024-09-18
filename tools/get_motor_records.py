@@ -2,10 +2,42 @@
 from epics import caget
 
 # TODO: make args with argparse
-prefix = "4ida:"
-motor_list = list(range(1,13+1))
+#  prefix = "4ida:"
+#  motor_list = list(range(1,13+1))
 
-fields = [
+prefix = "7idasoft:"
+motor_list = list(range(1,15+1))
+
+basic_fields = [
+    "DESC",
+    "EGU",
+    "HLM",
+    "LLM",
+    "RBV"
+    "VAL",
+    "DHLM",
+    "DLLM",
+    "DRBV",
+    "DVAL",
+    "RVAL",
+    "RRBV",
+    "OFF",
+    "FOFF",
+    "DIR",
+    "VMAX",
+    "VELO",
+    "VBAS",
+    "ACCL",
+    "MRES",
+    "ERES",
+    "RDBD",
+    "RTRY",
+    "UEIP",
+    "URIP",
+    "PREC"
+]
+
+all_fields = [
     "DESC",
     "SCAN",
     "DTYP",
@@ -131,9 +163,11 @@ fields = [
     "VOF",
 ]
 
+
 def main():
 
     motors = []
+    fields = basic_fields
     
     for i in motor_list:
         pv_name = f"{prefix}m{i}"
