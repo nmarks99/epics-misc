@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# Defines 4 IOCs
+# Define 4 IOCs and directory where they reside
 IOC1="4ida"
 IOC2="4idaSoft"
 IOC3="4idHHLM"
 IOC4="4idVDCM"
-MACROS="IOC1=${IOC1},IOC2=${IOC2},IOC3=${IOC3},IOC4=${IOC4}"
+IOC_DIR="/net/s4dserv/xorApps/epics/synApps_6_3/ioc/"
 
 # add adl and ui directories for each IOC to CAQTDM_DISPLAY_PATH
 # you will need to do this manually if not all IOCs reside in the same ioc/ dir
-IOC_DIR="/net/s4dserv/xorApps/epics/synApps_6_3/ioc/"
 for i in 1 2 3 4; do
     IOC_VAR="IOC${i}"
     IOC=${!IOC_VAR}
@@ -20,7 +19,7 @@ done
 export EPICS_APP="./"
 export EPICS_APP_ADL_DIR="./"
 source ${EPICS_APP}/setup_epics_common caqtdm
+# echo $CAQTDM_DISPLAY_PATH
 
-echo $CAQTDM_DISPLAY_PATH
-
+MACROS="IOC1=${IOC1},IOC2=${IOC2},IOC3=${IOC3},IOC4=${IOC4}"
 /APSshare/bin/caQtDM -macro $MACROS IOCManager4x.ui &
