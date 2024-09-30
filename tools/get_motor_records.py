@@ -13,7 +13,7 @@ basic_fields = [
     "EGU",
     "HLM",
     "LLM",
-    "RBV"
+    "RBV",
     "VAL",
     "DHLM",
     "DLLM",
