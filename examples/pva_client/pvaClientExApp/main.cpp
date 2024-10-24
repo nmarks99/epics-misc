@@ -1,9 +1,10 @@
 #include <ncurses.h>
-#include "pva/client.h"
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <sstream>
+
+#include <pva/client.h>
+#include <pv/caProvider.h>
 
 int main(int argc, char *argv[]) {
     
@@ -14,60 +15,19 @@ int main(int argc, char *argv[]) {
 
     std::string prefix(argv[1]);
 
-    pvac::ClientProvider provider("pva");
+    epics::pvAccess::ca::CAClientFactory::start();
+    pvac::ClientProvider provider("ca");
     
-    // // PVs for positive and negative X, Y, and Z
-    // std::stringstream ss;
-    // ss << prefix << "Control:PoseXTweakFwd";
-
-    pvac::ClientChannel channel_up(provider.connect("nam:UP"));
-    pvac::ClientChannel channel_down(provider.connect("nam:DOWN"));
-    pvac::ClientChannel channel_left(provider.connect("nam:LEFT"));
-    pvac::ClientChannel channel_right(provider.connect("nam:RIGHT"));
-
-    initscr();
-    keypad(stdscr, TRUE);
-    noecho();
-
-    int value_up = 0;
-    int value_down = 0;
-    int value_left = 0;
-    int value_right = 0;
-
-    bool running = true;
-    while(running) {
-        int ch = getch();
-        switch (ch) {
-            case KEY_UP:
-                printw("Up\n");
-                value_up = channel_up.get()->getSubField<epics::pvData::PVInt>("value")->getAs<int>();
-                channel_up.put().set("value", value_up+1).exec();
-                break;
-            case KEY_LEFT:
-                printw("Left\n");
-                value_left = channel_left.get()->getSubField<epics::pvData::PVInt>("value")->getAs<int>();
-                channel_left.put().set("value", value_left+1).exec();
-                break;
-            case KEY_RIGHT:
-                printw("Right\n");
-                value_right = channel_right.get()->getSubField<epics::pvData::PVInt>("value")->getAs<int>();
-                channel_right.put().set("value", value_right+1).exec();
-                break;
-            case KEY_DOWN:
-                printw("Down\n");
-                value_down = channel_down.get()->getSubField<epics::pvData::PVInt>("value")->getAs<int>();
-                channel_down.put().set("value", value_down+1).exec();
-                break;
-            case 'q':
-                printw("Quit by user\n");
-                running = false;
-                break;
-            default:
-                break;
-        }
-        refresh();
-    }
-    endwin();
-
+    // get the value of a array field as a double...
+    // what the hell? why is this so complicated?
+    pvac::ClientChannel channel_test(provider.connect(prefix + "Receive:ActualTCP_X.VAL"));
+    auto value = channel_test.get()->getPVFields().at(0);
+    std::cout << "value = " << value << std::endl;
+    auto float_array_field = std::dynamic_pointer_cast<epics::pvData::PVScalarArray>(value);
+    epics::pvData::shared_vector<const float> float_values;
+    float_array_field->getAs(float_values);
+    std::vector<float> vec(float_values.begin(), float_values.end());
+    std::cout << "value double = " << vec.at(0) << std::endl;
+    
     return 0; 
 }
