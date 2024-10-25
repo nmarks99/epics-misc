@@ -11,6 +11,13 @@
 
 namespace pvd = epics::pvData;
 
+std::string get_value_type(pvac::ClientChannel &channel) {
+    return epics::pvData::ScalarTypeFunc::name(
+        std::dynamic_pointer_cast<const epics::pvData::Scalar>(
+            channel.get()->getStructure()->getField("value"))->getScalarType()
+    );
+}
+
 int main(int argc, char *argv[]) {
     
     if (argc <= 1) {
@@ -23,22 +30,9 @@ int main(int argc, char *argv[]) {
     epics::pvAccess::ca::CAClientFactory::start();
     pvac::ClientProvider provider("ca");
     
-    // get the value of a array field as a double...
-    // what the hell? why is this so complicated?
-    // pvac::ClientChannel channel_test(provider.connect(prefix + "Receive:ActualTCP_X.VAL"));
-    // auto value = channel_test.get()->getPVFields().at(0);
-    // std::cout << "value = " << value << std::endl;
-    // auto float_array_field = std::dynamic_pointer_cast<epics::pvData::PVScalarArray>(value);
-    // epics::pvData::shared_vector<const float> float_values;
-    // float_array_field->getAs(float_values);
-    // std::vector<float> vec(float_values.begin(), float_values.end());
-    // std::cout << "value double = " << vec.at(0) << std::endl;
-    
     // Get a PV value and convert it to a primitive type (int, double, etc.)
     // the template argument in getSubFieldT must be the correct type
     std::cout << "\n--------------------------------------------------------------" << std::endl;
-    std::cout << "double:" << std::endl;
-    std::cout << "--------------------------------------------------------------" << std::endl;
     {
         pvac::ClientChannel channel_test(provider.connect(prefix + "WaypointJ:1:J1"));
         std::cout << channel_test.get() << std::endl;
@@ -49,8 +43,6 @@ int main(int argc, char *argv[]) {
     }
 
     std::cout << "\n--------------------------------------------------------------" << std::endl;
-    std::cout << "string:" << std::endl;
-    std::cout << "--------------------------------------------------------------" << std::endl;
     {
         pvac::ClientChannel channel_test(provider.connect(prefix + "ENGINEER"));
         std::cout << channel_test.get() << std::endl;
@@ -61,8 +53,6 @@ int main(int argc, char *argv[]) {
     }
 
     std::cout << "\n--------------------------------------------------------------" << std::endl;
-    std::cout << "double array:" << std::endl;
-    std::cout << "--------------------------------------------------------------" << std::endl;
     {
         pvac::ClientChannel channel_test(provider.connect(prefix + "Receive:ActualTCPPose"));
         std::cout << channel_test.get() << std::endl;
@@ -76,6 +66,12 @@ int main(int argc, char *argv[]) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
+    }
+
+    // get the type of a pv
+    {
+        pvac::ClientChannel channel_test(provider.connect(prefix + "m1.VAL"));
+        std::cout << get_value_type(channel_test) << std::endl;
     }
     
     return 0; 
