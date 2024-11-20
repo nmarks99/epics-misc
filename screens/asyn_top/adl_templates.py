@@ -1,14 +1,16 @@
-
+WINDOW_WIDTH8 = 165
+WINDOW_WIDTH16 = 340
+adl_header = """
 file {
-	name="/home/beams0/NMARKS/devel/epics-misc/screens/asyn_top/topAsynRow.adl"
+	name="$(FILENAME)"
 	version=030111
 }
 display {
 	object {
-		x=1198
-		y=973
-		width=379
-		height=285
+		x=1188
+		y=965
+		width=$(WINDOW_WIDTH)
+		height=$(WINDOW_HEIGHT)
 	}
 	clr=14
 	bclr=4
@@ -86,16 +88,18 @@ display {
 		289315,
 		1a7309,
 	}
-}
+}"""
+
+adl_row8 = """
 "text update" {
 	object {
 		x=35
-		y=5
-		width=120
+		y=$(Y)
+		width=125
 		height=25
 	}
 	monitor {
-		chan="$(P)$(R).PORT"
+		chan="$(P)$(R$(N)).PORT"
 		clr=14
 		bclr=2
 	}
@@ -106,16 +110,83 @@ display {
 "related display" {
 	object {
 		x=5
-		y=5
+		y=$(Y)
 		width=25
 		height=25
 	}
 	display[0] {
-		label="asyn 1"
+		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=$(R)"
+		args="P=$(P),R=$(R$(N))"
 	}
 	clr=0
 	bclr=63
-	label="-1"
+	label="-$(N)"
+}"""
+
+adl_row16 = """
+"text update" {
+	object {
+		x=35
+		y=$(Y)
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)$(R$(N1)).PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
 }
+"related display" {
+	object {
+		x=5
+		y=$(Y)
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=$(R$(N1))"
+	}
+	clr=0
+	bclr=63
+	label="-$(N1)"
+}
+"text update" {
+	object {
+		x=205
+		y=$(Y)
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)$(R$(N2)).PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=$(Y)
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N2)"
+		name="asynOctet"
+		args="P=$(P),R=$(R$(N2))"
+	}
+	clr=0
+	bclr=63
+	label="-$(N2)"
+}
+"""
