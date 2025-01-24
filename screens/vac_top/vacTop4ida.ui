@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>946</x>
-            <y>1053</y>
-            <width>250</width>
-            <height>430</height>
+            <x>1000</x>
+            <y>1000</y>
+            <width>120</width>
+            <height>230</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -129,17 +129,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4ida</string>
+                <string>IG1/CG1</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
+                    <x>30</x>
                     <y>5</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -149,10 +149,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>5</x>
                     <y>5</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -173,55 +173,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>vxWorks IOC status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_vxworks.adl;4ida.ui</string>
+                <string>VacSen.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4ida,P=4ida:;P=4ida:</string>
+                <string>P=4idaSoft:,GAUGE=VS01</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_0">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>5</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4ida:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_1">
@@ -243,17 +204,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idaSoft</string>
+                <string>IG2/CG2</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>40</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>25</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -263,10 +224,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>40</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>25</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -287,55 +248,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idaSoft.ui</string>
+                <string>VacSen.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idaSoft,P=4idaSoft:;P=4idaSoft:</string>
+                <string>P=4idaSoft:,GAUGE=VS02</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_1">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>40</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idaSoft:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_2">
@@ -357,17 +279,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idHHLM</string>
+                <string>IG3/CG3</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>75</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>45</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -377,10 +299,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>75</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>45</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -401,55 +323,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idHHLM.ui</string>
+                <string>VacSen.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idHHLM,P=4idHHLM:;P=4idHHLM:</string>
+                <string>P=4idaSoft:,GAUGE=VS03</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_2">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>75</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idHHLM:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_3">
@@ -471,17 +354,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idVDCM</string>
+                <string>IP1</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>110</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>65</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -491,10 +374,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>110</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>65</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -515,55 +398,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idVDCM.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idVDCM,P=4idVDCM:;P=4idVDCM:</string>
+                <string>P=4idaSoft:,PUMP=IP01</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_3">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>110</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idVDCM:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_4">
@@ -585,17 +429,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idaPostMirrBeam</string>
+                <string>IP2</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>145</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>85</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -605,10 +449,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>145</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>85</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -629,55 +473,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idaPostMirrBeam.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idaPostMirrBeam,P=4idaPostMirrBeam:;P=4idaPostMirrBeam:</string>
+                <string>P=4idaSoft:,PUMP=IP02</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_4">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>145</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idaPostMirrBeam:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_5">
@@ -699,17 +504,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idaPostMonoBeam</string>
+                <string>IP3</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>180</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>105</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -719,10 +524,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>180</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>105</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -743,55 +548,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idaPostMonoBeam.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idaPostMonoBeam,P=4idaPostMonoBeam:;P=4idaPostMonoBeam:</string>
+                <string>P=4idaSoft:,PUMP=IP03</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_5">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>180</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idaPostMonoBeam:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_6">
@@ -813,17 +579,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idb</string>
+                <string>IP4</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>215</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>125</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -833,10 +599,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_6">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>215</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>125</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -857,55 +623,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>vxWorks IOC status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_vxworks.adl;4idb.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idb,P=4idb:;P=4idb:</string>
+                <string>P=4idaSoft:,PUMP=IP04</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_6">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>215</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idb:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_7">
@@ -927,17 +654,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idbSoft</string>
+                <string>IP5</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>250</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>145</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -947,10 +674,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_7">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>250</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>145</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -971,55 +698,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idbSoft.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idbSoft,P=4idbSoft:;P=4idbSoft:</string>
+                <string>P=4idaSoft:,PUMP=IP05</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_7">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>250</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idbSoft:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_8">
@@ -1041,17 +729,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idbPostToroBeam</string>
+                <string>IP6</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>285</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>165</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -1061,10 +749,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_8">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>285</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>165</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -1085,55 +773,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idbPostToroBeam.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idbPostToroBeam,P=4idbPostToroBeam:;P=4idbPostToroBeam:</string>
+                <string>P=4idaSoft:,PUMP=IP06</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_8">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>285</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idbPostToroBeam:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_9">
@@ -1155,17 +804,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idgSoft</string>
+                <string>IP7</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>320</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>185</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -1175,10 +824,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_9">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>320</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <x>5</x>
+                    <y>185</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -1199,55 +848,16 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idgSoft.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idgSoft,P=4idgSoft:;P=4idgSoft:</string>
+                <string>P=4idaSoft:,PUMP=IP07</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_9">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>320</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idgSoft:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_10">
@@ -1269,17 +879,17 @@ caMenu{
                 </color>
             </property>
             <property name="text">
-                <string>4idhSoft</string>
+                <string>IP8</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>355</y>
-                    <width>130</width>
-                    <height>30</height>
+                    <x>30</x>
+                    <y>205</y>
+                    <width>80</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -1289,124 +899,10 @@ caMenu{
         <widget class="caRelatedDisplay" name="caRelatedDisplay_10">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
-                    <y>355</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
-            </property>
-            <property name="files">
-                <string>ioc_stats_soft.adl;4idhSoft.ui</string>
-            </property>
-            <property name="args">
-                <string>ioc=4idhSoft,P=4idhSoft:;P=4idhSoft:</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_10">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>355</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idhSoft:alive</string>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_11">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>4idBLEPS</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
                     <x>5</x>
-                    <y>390</y>
-                    <width>130</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_11">
-            <property name="geometry">
-                <rect>
-                    <x>160</x>
-                    <y>390</y>
-                    <width>30</width>
-                    <height>30</height>
+                    <y>205</y>
+                    <width>20</width>
+                    <height>20</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -1427,81 +923,29 @@ caMenu{
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Soft IOC Status;Debug screen</string>
+                <string>display</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;4idBLEPS.ui</string>
+                <string>Pump.adl</string>
             </property>
             <property name="args">
-                <string>ioc=4idBLEPS,P=4idBLEPS:;P=4idBLEPS:</string>
+                <string>P=4idaSoft:,PUMP=IP08</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
-            </property>
-        </widget>
-        <widget class="caGraphics" name="caGraphics_11">
-            <property name="form">
-                <enum>caGraphics::Circle</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>390</y>
-                    <width>30</width>
-                    <height>30</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="fillstyle">
-                <enum>Filled</enum>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>216</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="visibility">
-                <enum>caGraphics::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>4idBLEPS:alive</string>
+                <string>false</string>
             </property>
         </widget>
         <zorder>caLabel_0</zorder>
-        <zorder>caGraphics_0</zorder>
         <zorder>caLabel_1</zorder>
-        <zorder>caGraphics_1</zorder>
         <zorder>caLabel_2</zorder>
-        <zorder>caGraphics_2</zorder>
         <zorder>caLabel_3</zorder>
-        <zorder>caGraphics_3</zorder>
         <zorder>caLabel_4</zorder>
-        <zorder>caGraphics_4</zorder>
         <zorder>caLabel_5</zorder>
-        <zorder>caGraphics_5</zorder>
         <zorder>caLabel_6</zorder>
-        <zorder>caGraphics_6</zorder>
         <zorder>caLabel_7</zorder>
-        <zorder>caGraphics_7</zorder>
         <zorder>caLabel_8</zorder>
-        <zorder>caGraphics_8</zorder>
         <zorder>caLabel_9</zorder>
-        <zorder>caGraphics_9</zorder>
         <zorder>caLabel_10</zorder>
-        <zorder>caGraphics_10</zorder>
-        <zorder>caLabel_11</zorder>
-        <zorder>caGraphics_11</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caRelatedDisplay_1</zorder>
         <zorder>caRelatedDisplay_2</zorder>
@@ -1513,7 +957,6 @@ caMenu{
         <zorder>caRelatedDisplay_8</zorder>
         <zorder>caRelatedDisplay_9</zorder>
         <zorder>caRelatedDisplay_10</zorder>
-        <zorder>caRelatedDisplay_11</zorder>
     </widget>
 </widget>
 </ui>

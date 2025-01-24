@@ -1,6 +1,6 @@
 
 file {
-	name="IOCManager_4ID.adl"
+	name="IOCManager_7ID.adl"
 	version=030111
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=946
 		y=1053
 		width=250
-		height=430
+		height=360
 	}
 	clr=14
 	bclr=4
@@ -97,7 +97,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4ida"
+	textix="7ida"
 }
 "related display" {
 	object {
@@ -109,12 +109,12 @@ text {
 	display[1] {
 		label="vxWorks IOC status"
 		name="ioc_stats_vxworks.adl"
-		args="ioc=4ida,P=4ida:"
+		args="ioc=7ida,P=7ida:"
 	}
 	display[2] {
 		label="Debug screen"
-		name="4ida.ui"
-		args="P=4ida:"
+		name="7ida.ui"
+		args="P=7ida:"
 	}
 	clr=14
 	bclr=4
@@ -131,7 +131,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4ida:alive"
+		chan="7ida:alive"
 	}
 }
 text {
@@ -144,7 +144,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idaSoft"
+	textix="7idasoft"
 }
 "related display" {
 	object {
@@ -156,12 +156,12 @@ text {
 	display[0] {
 		label="Soft IOC Status"
 		name="ioc_stats_soft.adl"
-		args="ioc=4idaSoft,P=4idaSoft:"
+		args="ioc=7idasoft,P=7idasoft:"
 	}
 	display[1] {
 		label="Debug screen"
-		name="4idaSoft.ui"
-		args="P=4idaSoft:"
+		name="7idasoft.ui"
+		args="P=7idasoft:"
 	}
 	clr=14
 	bclr=4
@@ -178,7 +178,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idaSoft:alive"
+		chan="7idasoft:alive"
 	}
 }
 text {
@@ -191,7 +191,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idHHLM"
+	textix="7idb"
 }
 "related display" {
 	object {
@@ -200,15 +200,15 @@ text {
 		width=30
 		height=30
 	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idHHLM,P=4idHHLM:"
-	}
 	display[1] {
+		label="vxWorks IOC status"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=7idb,P=7idb:"
+	}
+	display[2] {
 		label="Debug screen"
-		name="4idHHLM.ui"
-		args="P=4idHHLM:"
+		name="7idb.ui"
+		args="P=7idb:"
 	}
 	clr=14
 	bclr=4
@@ -225,7 +225,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idHHLM:alive"
+		chan="7idb:alive"
 	}
 }
 text {
@@ -238,7 +238,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idVDCM"
+	textix="7idBLEPS"
 }
 "related display" {
 	object {
@@ -250,12 +250,12 @@ text {
 	display[0] {
 		label="Soft IOC Status"
 		name="ioc_stats_soft.adl"
-		args="ioc=4idVDCM,P=4idVDCM:"
+		args="ioc=7idBLEPS,P=7idBLEPS:"
 	}
 	display[1] {
 		label="Debug screen"
-		name="4idVDCM.ui"
-		args="P=4idVDCM:"
+		name="7idBLEPS.ui"
+		args="P=7idBLEPS:"
 	}
 	clr=14
 	bclr=4
@@ -272,7 +272,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idVDCM:alive"
+		chan="7idBLEPS:alive"
 	}
 }
 text {
@@ -285,7 +285,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idaPostMirrBeam"
+	textix="7idc1"
 }
 "related display" {
 	object {
@@ -294,15 +294,15 @@ text {
 		width=30
 		height=30
 	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idaPostMirrBeam,P=4idaPostMirrBeam:"
-	}
 	display[1] {
+		label="vxWorks IOC status"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=7idc1,P=7idc1:"
+	}
+	display[2] {
 		label="Debug screen"
-		name="4idaPostMirrBeam.ui"
-		args="P=4idaPostMirrBeam:"
+		name="7idc1.ui"
+		args="P=7idc1:"
 	}
 	clr=14
 	bclr=4
@@ -319,7 +319,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idaPostMirrBeam:alive"
+		chan="7idc1:alive"
 	}
 }
 text {
@@ -332,7 +332,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idaPostMonoBeam"
+	textix="7idc2"
 }
 "related display" {
 	object {
@@ -341,15 +341,15 @@ text {
 		width=30
 		height=30
 	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idaPostMonoBeam,P=4idaPostMonoBeam:"
-	}
 	display[1] {
+		label="vxWorks IOC status"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=7idc2,P=7idc2:"
+	}
+	display[2] {
 		label="Debug screen"
-		name="4idaPostMonoBeam.ui"
-		args="P=4idaPostMonoBeam:"
+		name="7idc2.ui"
+		args="P=7idc2:"
 	}
 	clr=14
 	bclr=4
@@ -366,7 +366,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idaPostMonoBeam:alive"
+		chan="7idc2:alive"
 	}
 }
 text {
@@ -379,7 +379,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idb"
+	textix="7idd"
 }
 "related display" {
 	object {
@@ -391,12 +391,12 @@ text {
 	display[1] {
 		label="vxWorks IOC status"
 		name="ioc_stats_vxworks.adl"
-		args="ioc=4idb,P=4idb:"
+		args="ioc=7idd,P=7idd:"
 	}
 	display[2] {
 		label="Debug screen"
-		name="4idb.ui"
-		args="P=4idb:"
+		name="7idd.ui"
+		args="P=7idd:"
 	}
 	clr=14
 	bclr=4
@@ -413,7 +413,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idb:alive"
+		chan="7idd:alive"
 	}
 }
 text {
@@ -426,7 +426,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idbSoft"
+	textix="7iddsoft"
 }
 "related display" {
 	object {
@@ -438,12 +438,12 @@ text {
 	display[0] {
 		label="Soft IOC Status"
 		name="ioc_stats_soft.adl"
-		args="ioc=4idbSoft,P=4idbSoft:"
+		args="ioc=7iddsoft,P=7iddsoft:"
 	}
 	display[1] {
 		label="Debug screen"
-		name="4idbSoft.ui"
-		args="P=4idbSoft:"
+		name="7iddsoft.ui"
+		args="P=7iddsoft:"
 	}
 	clr=14
 	bclr=4
@@ -460,7 +460,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idbSoft:alive"
+		chan="7iddsoft:alive"
 	}
 }
 text {
@@ -473,7 +473,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idbPostToroBeam"
+	textix="7ide"
 }
 "related display" {
 	object {
@@ -482,15 +482,15 @@ text {
 		width=30
 		height=30
 	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idbPostToroBeam,P=4idbPostToroBeam:"
-	}
 	display[1] {
+		label="vxWorks IOC status"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=7ide,P=7ide:"
+	}
+	display[2] {
 		label="Debug screen"
-		name="4idbPostToroBeam.ui"
-		args="P=4idbPostToroBeam:"
+		name="7ide.ui"
+		args="P=7ide:"
 	}
 	clr=14
 	bclr=4
@@ -507,7 +507,7 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idbPostToroBeam:alive"
+		chan="7ide:alive"
 	}
 }
 text {
@@ -520,7 +520,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idgSoft"
+	textix="7idb_slits"
 }
 "related display" {
 	object {
@@ -532,12 +532,12 @@ text {
 	display[0] {
 		label="Soft IOC Status"
 		name="ioc_stats_soft.adl"
-		args="ioc=4idgSoft,P=4idgSoft:"
+		args="ioc=7idb_slits,P=7idb_slits:"
 	}
 	display[1] {
 		label="Debug screen"
-		name="4idgSoft.ui"
-		args="P=4idgSoft:"
+		name="7idb_slits.ui"
+		args="P=7idb_slits:"
 	}
 	clr=14
 	bclr=4
@@ -554,100 +554,6 @@ oval {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="4idgSoft:alive"
-	}
-}
-text {
-	object {
-		x=5
-		y=355
-		width=130
-		height=30
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="4idhSoft"
-}
-"related display" {
-	object {
-		x=160
-		y=355
-		width=30
-		height=30
-	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idhSoft,P=4idhSoft:"
-	}
-	display[1] {
-		label="Debug screen"
-		name="4idhSoft.ui"
-		args="P=4idhSoft:"
-	}
-	clr=14
-	bclr=4
-}
-oval {
-	object {
-		x=200
-		y=355
-		width=30
-		height=30
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="4idhSoft:alive"
-	}
-}
-text {
-	object {
-		x=5
-		y=390
-		width=130
-		height=30
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="4idBLEPS"
-}
-"related display" {
-	object {
-		x=160
-		y=390
-		width=30
-		height=30
-	}
-	display[0] {
-		label="Soft IOC Status"
-		name="ioc_stats_soft.adl"
-		args="ioc=4idBLEPS,P=4idBLEPS:"
-	}
-	display[1] {
-		label="Debug screen"
-		name="4idBLEPS.ui"
-		args="P=4idBLEPS:"
-	}
-	clr=14
-	bclr=4
-}
-oval {
-	object {
-		x=200
-		y=390
-		width=30
-		height=30
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="4idBLEPS:alive"
+		chan="7idb_slits:alive"
 	}
 }

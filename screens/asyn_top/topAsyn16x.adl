@@ -1,0 +1,608 @@
+
+file {
+	name="topAsyn16x.adl"
+	version=030111
+}
+display {
+	object {
+		x=1188
+		y=965
+		width=340
+		height=250
+	}
+	clr=14
+	bclr=4
+	cmap=""
+	gridSpacing=5
+	gridOn=1
+	snapToGrid=1
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+"text update" {
+	object {
+		x=35
+		y=5
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:1.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=5
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:1"
+	}
+	clr=0
+	bclr=63
+	label="-1"
+}
+"text update" {
+	object {
+		x=205
+		y=5
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:9.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=5
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 9"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:9"
+	}
+	clr=0
+	bclr=63
+	label="-9"
+}
+
+"text update" {
+	object {
+		x=35
+		y=35
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:2.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=35
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:2"
+	}
+	clr=0
+	bclr=63
+	label="-2"
+}
+"text update" {
+	object {
+		x=205
+		y=35
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:10.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=35
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 10"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:10"
+	}
+	clr=0
+	bclr=63
+	label="-10"
+}
+
+"text update" {
+	object {
+		x=35
+		y=65
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:3.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=65
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:3"
+	}
+	clr=0
+	bclr=63
+	label="-3"
+}
+"text update" {
+	object {
+		x=205
+		y=65
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:11.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=65
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 11"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:11"
+	}
+	clr=0
+	bclr=63
+	label="-11"
+}
+
+"text update" {
+	object {
+		x=35
+		y=95
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:4.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=95
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:4"
+	}
+	clr=0
+	bclr=63
+	label="-4"
+}
+"text update" {
+	object {
+		x=205
+		y=95
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:12.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=95
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 12"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:12"
+	}
+	clr=0
+	bclr=63
+	label="-12"
+}
+
+"text update" {
+	object {
+		x=35
+		y=125
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:5.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=125
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:5"
+	}
+	clr=0
+	bclr=63
+	label="-5"
+}
+"text update" {
+	object {
+		x=205
+		y=125
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:13.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=125
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 13"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:13"
+	}
+	clr=0
+	bclr=63
+	label="-13"
+}
+
+"text update" {
+	object {
+		x=35
+		y=155
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:6.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=155
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:6"
+	}
+	clr=0
+	bclr=63
+	label="-6"
+}
+"text update" {
+	object {
+		x=205
+		y=155
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:14.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=155
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 14"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:14"
+	}
+	clr=0
+	bclr=63
+	label="-14"
+}
+
+"text update" {
+	object {
+		x=35
+		y=185
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:7.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=185
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:7"
+	}
+	clr=0
+	bclr=63
+	label="-7"
+}
+"text update" {
+	object {
+		x=205
+		y=185
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:15.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=185
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 15"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:15"
+	}
+	clr=0
+	bclr=63
+	label="-15"
+}
+
+"text update" {
+	object {
+		x=35
+		y=215
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:8.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=215
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn $(N)"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:8"
+	}
+	clr=0
+	bclr=63
+	label="-8"
+}
+"text update" {
+	object {
+		x=205
+		y=215
+		width=125
+		height=25
+	}
+	monitor {
+		chan="$(P)asyn_MOXA_H:16.PORT"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=175
+		y=215
+		width=25
+		height=25
+	}
+	display[0] {
+		label="asyn 16"
+		name="asynOctet"
+		args="P=$(P),R=asyn_MOXA_H:16"
+	}
+	clr=0
+	bclr=63
+	label="-16"
+}

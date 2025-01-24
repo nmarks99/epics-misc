@@ -5,25 +5,47 @@ import os
 # FILENAME, WINDOW_HEIGHT, IOC, Y
 from adl_templates import adl_header, template_soft, template_vme
 
-ioc_dir = "/net/s4dserv/xorApps/epics/synApps_6_3/ioc"
+#  # 4-ID
+#  filename = "IOCManager_4ID.adl"
+#  ioc_dir = "/net/s4dserv/xorApps/epics/synApps_6_3/ioc"
+#  iocs = {
+    #  f"{ioc_dir}/4ida"             : "vme",
+    #  f"{ioc_dir}/4idaSoft"         : "soft",
+    #  f"{ioc_dir}/4idHHLM"          : "soft",
+    #  f"{ioc_dir}/4idVDCM"          : "soft",
+    #  f"{ioc_dir}/4idaPostMirrBeam" : "soft",
+    #  f"{ioc_dir}/4idaPostMonoBeam" : "soft",
+#
+    #  f"{ioc_dir}/4idb"             : "vme",
+    #  f"{ioc_dir}/4idbSoft"         : "soft",
+    #  f"{ioc_dir}/4idbPostToroBeam" : "soft",
+#
+    #  f"{ioc_dir}/4idgSoft"         : "soft",
+#
+    #  f"{ioc_dir}/4idhSoft"         : "soft",
+#
+    #  f"{ioc_dir}/4idBLEPS"         : "soft",
+#  }
+
+## 7-ID
+filename = "IOCManager_7ID.adl"
+ioc_dir_63 = "/net/s7dserv/xorApps/epics/synApps_6_3/id/ioc"
+ioc_dir_58 = "/net/s7dserv/xorApps/epics/synApps_5_8/ioc"
 iocs = {
-    f"{ioc_dir}/4ida"             : "vme",
-    f"{ioc_dir}/4idaSoft"         : "soft",
-    f"{ioc_dir}/4idHHLM"          : "soft",
-    f"{ioc_dir}/4idVDCM"          : "soft",
-    f"{ioc_dir}/4idaPostMirrBeam" : "soft",
-    f"{ioc_dir}/4idaPostMonoBeam" : "soft",
-
-    f"{ioc_dir}/4idbSoft"         : "soft",
-    f"{ioc_dir}/4idbPostToroBeam" : "soft",
-
-    f"{ioc_dir}/4idgSoft"         : "soft",
-
-    f"{ioc_dir}/4idhSoft"         : "soft",
+    f"{ioc_dir_63}/7ida"        : "vme",
+    f"{ioc_dir_63}/7idasoft"    : "soft",
+    f"{ioc_dir_63}/7idb"        : "vme",
+    f"{ioc_dir_63}/7idBLEPS"    : "soft",
+    f"{ioc_dir_63}/7idc1"       : "vme",
+    f"{ioc_dir_63}/7idc2"       : "vme",
+    f"{ioc_dir_63}/7idd"        : "vme",
+    f"{ioc_dir_63}/7iddsoft"    : "soft",
+    f"{ioc_dir_63}/7ide"        : "vme",
+    f"{ioc_dir_58}/7idb_slits"  : "soft",
 }
 
-filename = "IOCManager_4ID.adl"
-up_pv = "HEARTBEAT"
+#  up_pv = "HEARTBEAT"
+up_pv = "alive"
 adl_out = adl_header
 y = 5
 y_offset = 35

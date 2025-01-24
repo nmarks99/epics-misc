@@ -45,24 +45,44 @@ SCREEN_TYPE = 16
     #  "asyn_MOXA_VAC3:16",
 #  ]
 
-# moxa4idb
+#  # moxa4idb
+#  R_list = [
+    #  "asyn_MOXA_B:1",
+    #  "asyn_MOXA_B:2",
+    #  "asyn_MOXA_B:3",
+    #  "asyn_MOXA_B:4",
+    #  "asyn_MOXA_B:5",
+    #  "asyn_MOXA_B:6",
+    #  "asyn_MOXA_B:7",
+    #  "asyn_MOXA_B:8",
+    #  "asyn_MOXA_B:9",
+    #  "asyn_MOXA_B:10",
+    #  "asyn_MOXA_B:11",
+    #  "asyn_MOXA_B:12",
+    #  "asyn_MOXA_B:13",
+    #  "asyn_MOXA_B:14",
+    #  "asyn_MOXA_B:15",
+    #  "asyn_MOXA_B:16",
+#  ]
+
+# moxa4idh
 R_list = [
-    "asyn_MOXA_B:1",
-    "asyn_MOXA_B:2",
-    "asyn_MOXA_B:3",
-    "asyn_MOXA_B:4",
-    "asyn_MOXA_B:5",
-    "asyn_MOXA_B:6",
-    "asyn_MOXA_B:7",
-    "asyn_MOXA_B:8",
-    "asyn_MOXA_B:9",
-    "asyn_MOXA_B:10",
-    "asyn_MOXA_B:11",
-    "asyn_MOXA_B:12",
-    "asyn_MOXA_B:13",
-    "asyn_MOXA_B:14",
-    "asyn_MOXA_B:15",
-    "asyn_MOXA_B:16",
+    "asyn_MOXA_H:1",
+    "asyn_MOXA_H:2",
+    "asyn_MOXA_H:3",
+    "asyn_MOXA_H:4",
+    "asyn_MOXA_H:5",
+    "asyn_MOXA_H:6",
+    "asyn_MOXA_H:7",
+    "asyn_MOXA_H:8",
+    "asyn_MOXA_H:9",
+    "asyn_MOXA_H:10",
+    "asyn_MOXA_H:11",
+    "asyn_MOXA_H:12",
+    "asyn_MOXA_H:13",
+    "asyn_MOXA_H:14",
+    "asyn_MOXA_H:15",
+    "asyn_MOXA_H:16",
 ]
 # ----------------------------------------
 

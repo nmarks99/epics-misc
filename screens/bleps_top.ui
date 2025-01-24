@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QMainWindow" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>180</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Beamline FIFO</string>
+  </property>
+  <property name="styleSheet">
+   <string>QWidget#centralwidget {background: rgba(117,118,135,255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="caRelatedDisplay" name="carelateddisplay">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>10</y>
+      <width>150</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="foreground">
+     <color>
+      <red>255</red>
+      <green>255</green>
+      <blue>255</blue>
+     </color>
+    </property>
+    <property name="background">
+     <color>
+      <red>0</red>
+      <green>170</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="labels">
+     <string>All;Shutters;Temps;Flows;Pumps/gauges;Valves;FIFO</string>
+    </property>
+    <property name="files">
+     <string>bleps_all.ui;shutters.ui;bleps_temps.ui;bleps_flows.ui;bleps_extras.ui;bleps_valves.ui;bleps_fifo.ui;</string>
+    </property>
+    <property name="args">
+     <string>P=$(P);P=$(P);P=$(P);P=$(P);P=$(P);P=$(P);P=$(P);</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>caRelatedDisplay</class>
+   <extends>QWidget</extends>
+   <header>caRelatedDisplay</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
