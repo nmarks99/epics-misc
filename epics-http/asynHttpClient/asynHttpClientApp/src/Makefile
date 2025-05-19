@@ -7,13 +7,12 @@ include $(TOP)/configure/CONFIG
 # Define IOC library name
 LIBRARY_IOC += asynHttpClient
 
-# NOTE: cpr must be compiled with CMAKE_POSITION_INDEPENDENT_CODE ON
-# TODO: no absolute paths here
-USR_INCLUDES += -I/home/nick/.local/include
-LIB_INSTALLS += /home/nick/.local/lib/libcpr.a
-BIN_INSTALLS += /home/nick/.local/lib/libcpr.so
-BIN_INSTALLS += /home/nick/.local/lib/libcpr.so.1
-BIN_INSTALLS += /home/nick/.local/lib/libcpr.so.1.11.2
+# CPR library must be built as a shared and static library
+USR_INCLUDES += -I$(CPR_INCLUDE_DIR)
+LIB_INSTALLS += $(CPR_LIB_DIR)/libcpr.a
+BIN_INSTALLS += $(CPR_LIB_DIR)/libcpr.so
+BIN_INSTALLS += $(CPR_LIB_DIR)/libcpr.so.1
+BIN_INSTALLS += $(CPR_LIB_DIR)/libcpr.so.1.11.2
 
 # install asynHttpClientSupport.dbd into <top>/dbd
 DBD += asynHttpClientSupport.dbd

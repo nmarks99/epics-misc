@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/APSshare/bin/caQtDM -macro "P=xxx:" http_client.ui

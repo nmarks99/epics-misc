@@ -27,7 +27,6 @@ DBD_NAME = $(DBD_PREFIX)$(DBD_SUFFIX_$(OS_CLASS))
 DBD  += $(DBD_NAME).dbd
 
 $(DBD_NAME)_DBD += base.dbd
-$(DBD_NAME)_DBD += subs.dbd
 
 ifdef ASYN
   $(DBD_NAME)_DBD += asyn.dbd
@@ -49,7 +48,6 @@ $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
-$(PROD_NAME)_SRCS  += subs.c
 
 #===========================
 

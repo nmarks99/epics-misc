@@ -3,10 +3,13 @@
 # top directory each time this file is changed.
 ##############################################################################
 
-SUPPORT = /home/nick/.local/epics/synApps_6_3/support
-EPICS_BASE = /usr/local/epics/base-7.0.8.1
+SUPPORT = 
+EPICS_BASE = 
 LUA = $(SUPPORT)/lua-R3-1/
 ASYN = $(SUPPORT)/asyn-R4-44-2
+
+CPR_INCLUDE_DIR = /home/beams/NMARKS/.local/include
+CPR_LIB_DIR = /home/beams/NMARKS/.local/lib64
 
 # These lines allow developers to override these RELEASE settings
 # without having to modify this file directly.
