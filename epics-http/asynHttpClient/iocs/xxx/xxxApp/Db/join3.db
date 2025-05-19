@@ -1,0 +1,89 @@
+# Creates a soft motor that moves three axes together by the same amount.
+
+record(motor, "$(P)$(SM)") {
+    field(DTYP, "Soft Channel")
+    field(DESC, "$(DESC=)")
+    field(OUT, "$(P)$(SM):Position.VAL PP MS")
+    field(RDBL, "$(P)$(SM):AvgReadback.VAL NPP MS")
+    field(DINP, "$(P)$(SM):Done NPP MS")
+    field(STOO, "$(P)$(SM):stop_all.PROC PP MS")
+    field(MRES, "$(MRES=1.0)")
+    field(DHLM, "$(DHLM=1000)")
+    field(DLLM, "$(DLLM=-1000)")
+    field(PREC, "$(PREC=4)")
+    field(RRES, "$(RRES=1.0)")
+    field(URIP, "Yes")
+    field(RTRY, "0")
+    field(LOCK, "YES")
+    field(NTM, "NO")
+    field(DIR,"Pos")
+    field(VELO,"1.0")
+    field(EGU,"mm")
+    field(TWV,"1.0")
+    field(OFF,"0.0")
+    field(FOFF,"Frozen")
+}
+record(bo,"$(P)$(SM)_able") {
+    field(DESC,"motor enable")
+    field(PINI,"YES")
+    field(OUT,"$(P)$(SM)_ableput.A PP MS")
+    field(ZNAM,"Enable")
+    field(ONAM,"Disable")
+}
+record(transform,"$(P)$(SM)_ableput") {
+    field(CLCB,"a")
+    field(CLCC,"a")
+    field(OUTA,"$(P)$(SM).DISA NPP NMS")
+    field(OUTB,"$(P)$(SM).DISP NPP NMS")
+    field(OUTC,"$(P)$(SM).DISA NPP NMS")
+}
+
+# Readback is average of the three motors, although they should
+# all be the same if only moved through this soft motor
+record(calcout, "$(P)$(SM):AvgReadback") {
+    field(DTYP, "Soft Channel")
+    field(INPA, "$(P)$(M1).RBV CP")
+    field(INPB, "$(P)$(M2).RBV CP")
+    field(INPC, "$(P)$(M3).RBV CP")
+    field(CALC, "(A + B + C) / 3")
+    field(PINI, "YES")
+}
+
+# Done when all three motors are done
+record(calcout, "$(P)$(SM):Done") {
+    field(DTYP, "Soft Channel")
+    field(INPA, "$(P)$(M1).DMOV CP")
+    field(INPB, "$(P)$(M2).DMOV CP")
+    field(INPC, "$(P)$(M3).DMOV CP")
+    field(CALC,"A & B & C")
+    field(PINI, "YES")
+}
+
+# Position which we set the three motors VAL field to
+record(ao, "$(P)$(SM):Position") {
+    field(DTYP, "Soft Channel")
+    field(FLNK, "$(P)$(SM):set_all.PROC")
+}
+
+# Sets $(M1).VAL, $(M2).VAL and $(M3).VAL to $(P)$(SM):Position.VAL
+record(seq, "$(P)$(SM):set_all") {
+    field(DOL0, "$(P)$(SM):Position.VAL")
+    field(LNK0, "$(P)$(M1).VAL CP")
+    field(DOL1, "$(P)$(SM):Position.VAL")
+    field(LNK1, "$(P)$(M2).VAL CP")
+    field(DOL2, "$(P)$(SM):Position.VAL")
+    field(LNK2, "$(P)$(M3).VAL CP")
+}
+
+# Stops all three motors
+record(seq, "$(P)$(SM):stop_all"){
+    field(DOL0, "1")
+    field(LNK0, "$(P)$(M1).STOP CP")
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(M2).STOP CP")
+    field(DOL2, "1")
+    field(LNK2, "$(P)$(M3).STOP CP")
+}
+
+
+
