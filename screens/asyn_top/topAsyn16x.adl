@@ -95,7 +95,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:1.PORT"
+		chan="$(P)asyn_MOXA_D:1.PORT"
 		clr=14
 		bclr=2
 	}
@@ -113,7 +113,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:1"
+		args="P=$(P),R=asyn_MOXA_D:1"
 	}
 	clr=0
 	bclr=63
@@ -127,7 +127,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:9.PORT"
+		chan="$(P)asyn_MOXA_D:9.PORT"
 		clr=14
 		bclr=2
 	}
@@ -145,7 +145,7 @@ display {
 	display[0] {
 		label="asyn 9"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:9"
+		args="P=$(P),R=asyn_MOXA_D:9"
 	}
 	clr=0
 	bclr=63
@@ -160,7 +160,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:2.PORT"
+		chan="$(P)asyn_MOXA_D:2.PORT"
 		clr=14
 		bclr=2
 	}
@@ -178,7 +178,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:2"
+		args="P=$(P),R=asyn_MOXA_D:2"
 	}
 	clr=0
 	bclr=63
@@ -192,7 +192,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:10.PORT"
+		chan="$(P)asyn_MOXA_D:10.PORT"
 		clr=14
 		bclr=2
 	}
@@ -210,7 +210,7 @@ display {
 	display[0] {
 		label="asyn 10"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:10"
+		args="P=$(P),R=asyn_MOXA_D:10"
 	}
 	clr=0
 	bclr=63
@@ -225,7 +225,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:3.PORT"
+		chan="$(P)asyn_MOXA_D:3.PORT"
 		clr=14
 		bclr=2
 	}
@@ -243,7 +243,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:3"
+		args="P=$(P),R=asyn_MOXA_D:3"
 	}
 	clr=0
 	bclr=63
@@ -257,7 +257,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:11.PORT"
+		chan="$(P)asyn_MOXA_D:11.PORT"
 		clr=14
 		bclr=2
 	}
@@ -275,7 +275,7 @@ display {
 	display[0] {
 		label="asyn 11"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:11"
+		args="P=$(P),R=asyn_MOXA_D:11"
 	}
 	clr=0
 	bclr=63
@@ -290,7 +290,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:4.PORT"
+		chan="$(P)asyn_MOXA_D:4.PORT"
 		clr=14
 		bclr=2
 	}
@@ -308,7 +308,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:4"
+		args="P=$(P),R=asyn_MOXA_D:4"
 	}
 	clr=0
 	bclr=63
@@ -322,7 +322,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:12.PORT"
+		chan="$(P)asyn_MOXA_D:12.PORT"
 		clr=14
 		bclr=2
 	}
@@ -340,7 +340,7 @@ display {
 	display[0] {
 		label="asyn 12"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:12"
+		args="P=$(P),R=asyn_MOXA_D:12"
 	}
 	clr=0
 	bclr=63
@@ -355,7 +355,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:5.PORT"
+		chan="$(P)asyn_MOXA_D:5.PORT"
 		clr=14
 		bclr=2
 	}
@@ -373,7 +373,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:5"
+		args="P=$(P),R=asyn_MOXA_D:5"
 	}
 	clr=0
 	bclr=63
@@ -387,7 +387,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:13.PORT"
+		chan="$(P)asyn_MOXA_D:13.PORT"
 		clr=14
 		bclr=2
 	}
@@ -405,7 +405,7 @@ display {
 	display[0] {
 		label="asyn 13"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:13"
+		args="P=$(P),R=asyn_MOXA_D:13"
 	}
 	clr=0
 	bclr=63
@@ -420,7 +420,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:6.PORT"
+		chan="$(P)asyn_MOXA_D:6.PORT"
 		clr=14
 		bclr=2
 	}
@@ -438,7 +438,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:6"
+		args="P=$(P),R=asyn_MOXA_D:6"
 	}
 	clr=0
 	bclr=63
@@ -452,7 +452,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:14.PORT"
+		chan="$(P)asyn_MOXA_D:14.PORT"
 		clr=14
 		bclr=2
 	}
@@ -470,7 +470,7 @@ display {
 	display[0] {
 		label="asyn 14"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:14"
+		args="P=$(P),R=asyn_MOXA_D:14"
 	}
 	clr=0
 	bclr=63
@@ -485,7 +485,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:7.PORT"
+		chan="$(P)asyn_MOXA_D:7.PORT"
 		clr=14
 		bclr=2
 	}
@@ -503,7 +503,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:7"
+		args="P=$(P),R=asyn_MOXA_D:7"
 	}
 	clr=0
 	bclr=63
@@ -517,7 +517,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:15.PORT"
+		chan="$(P)asyn_MOXA_D:15.PORT"
 		clr=14
 		bclr=2
 	}
@@ -535,7 +535,7 @@ display {
 	display[0] {
 		label="asyn 15"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:15"
+		args="P=$(P),R=asyn_MOXA_D:15"
 	}
 	clr=0
 	bclr=63
@@ -550,7 +550,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:8.PORT"
+		chan="$(P)asyn_MOXA_D:8.PORT"
 		clr=14
 		bclr=2
 	}
@@ -568,7 +568,7 @@ display {
 	display[0] {
 		label="asyn $(N)"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:8"
+		args="P=$(P),R=asyn_MOXA_D:8"
 	}
 	clr=0
 	bclr=63
@@ -582,7 +582,7 @@ display {
 		height=25
 	}
 	monitor {
-		chan="$(P)asyn_MOXA_H:16.PORT"
+		chan="$(P)asyn_MOXA_D:16.PORT"
 		clr=14
 		bclr=2
 	}
@@ -600,7 +600,7 @@ display {
 	display[0] {
 		label="asyn 16"
 		name="asynOctet"
-		args="P=$(P),R=asyn_MOXA_H:16"
+		args="P=$(P),R=asyn_MOXA_D:16"
 	}
 	clr=0
 	bclr=63

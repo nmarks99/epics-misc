@@ -8,7 +8,7 @@ display {
 		x=946
 		y=1053
 		width=250
-		height=430
+		height=605
 	}
 	clr=14
 	bclr=4
@@ -567,12 +567,200 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="4idhSoft"
+	textix="4idgSoftX"
 }
 "related display" {
 	object {
 		x=160
 		y=355
+		width=30
+		height=30
+	}
+	display[0] {
+		label="Soft IOC Status"
+		name="ioc_stats_soft.adl"
+		args="ioc=4idgSoftX,P=4idgSoftX:"
+	}
+	display[1] {
+		label="Debug screen"
+		name="4idgSoftX.ui"
+		args="P=4idgSoftX:"
+	}
+	clr=14
+	bclr=4
+}
+oval {
+	object {
+		x=200
+		y=355
+		width=30
+		height=30
+	}
+	"basic attribute" {
+		clr=15
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="4idgSoftX:alive"
+	}
+}
+text {
+	object {
+		x=5
+		y=390
+		width=130
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4idPyCrl"
+}
+"related display" {
+	object {
+		x=160
+		y=390
+		width=30
+		height=30
+	}
+	display[0] {
+		label="Soft IOC Status"
+		name="ioc_stats_soft.adl"
+		args="ioc=4idPyCrl,P=4idPyCrl:"
+	}
+	display[1] {
+		label="Debug screen"
+		name="4idPyCrl.ui"
+		args="P=4idPyCrl:"
+	}
+	clr=14
+	bclr=4
+}
+oval {
+	object {
+		x=200
+		y=390
+		width=30
+		height=30
+	}
+	"basic attribute" {
+		clr=15
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="4idPyCrl:alive"
+	}
+}
+text {
+	object {
+		x=5
+		y=425
+		width=130
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4idPyFilter"
+}
+"related display" {
+	object {
+		x=160
+		y=425
+		width=30
+		height=30
+	}
+	display[0] {
+		label="Soft IOC Status"
+		name="ioc_stats_soft.adl"
+		args="ioc=4idPyFilter,P=4idPyFilter:"
+	}
+	display[1] {
+		label="Debug screen"
+		name="4idPyFilter.ui"
+		args="P=4idPyFilter:"
+	}
+	clr=14
+	bclr=4
+}
+oval {
+	object {
+		x=200
+		y=425
+		width=30
+		height=30
+	}
+	"basic attribute" {
+		clr=15
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="4idPyFilter:alive"
+	}
+}
+text {
+	object {
+		x=5
+		y=460
+		width=130
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4idgSydor"
+}
+"related display" {
+	object {
+		x=160
+		y=460
+		width=30
+		height=30
+	}
+	display[0] {
+		label="Soft IOC Status"
+		name="ioc_stats_soft.adl"
+		args="ioc=4idgSydor,P=4idgSydor:"
+	}
+	display[1] {
+		label="Debug screen"
+		name="4idgSydor.ui"
+		args="P=4idgSydor:"
+	}
+	clr=14
+	bclr=4
+}
+oval {
+	object {
+		x=200
+		y=460
+		width=30
+		height=30
+	}
+	"basic attribute" {
+		clr=15
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="4idgSydor:alive"
+	}
+}
+text {
+	object {
+		x=5
+		y=495
+		width=130
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4idhSoft"
+}
+"related display" {
+	object {
+		x=160
+		y=495
 		width=30
 		height=30
 	}
@@ -592,7 +780,7 @@ text {
 oval {
 	object {
 		x=200
-		y=355
+		y=495
 		width=30
 		height=30
 	}
@@ -607,7 +795,54 @@ oval {
 text {
 	object {
 		x=5
-		y=390
+		y=530
+		width=130
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4idh"
+}
+"related display" {
+	object {
+		x=160
+		y=530
+		width=30
+		height=30
+	}
+	display[1] {
+		label="vxWorks IOC status"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=4idh,P=4idh:"
+	}
+	display[2] {
+		label="Debug screen"
+		name="4idh.ui"
+		args="P=4idh:"
+	}
+	clr=14
+	bclr=4
+}
+oval {
+	object {
+		x=200
+		y=530
+		width=30
+		height=30
+	}
+	"basic attribute" {
+		clr=15
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="4idh:alive"
+	}
+}
+text {
+	object {
+		x=5
+		y=565
 		width=130
 		height=30
 	}
@@ -619,7 +854,7 @@ text {
 "related display" {
 	object {
 		x=160
-		y=390
+		y=565
 		width=30
 		height=30
 	}
@@ -639,7 +874,7 @@ text {
 oval {
 	object {
 		x=200
-		y=390
+		y=565
 		width=30
 		height=30
 	}

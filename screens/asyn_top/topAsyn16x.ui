@@ -123,7 +123,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:1.PORT</string>
+                <string>$(P)asyn_MOXA_D:1.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -200,7 +200,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:1</string>
+                <string>P=$(P),R=asyn_MOXA_D:1</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -219,7 +219,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:9.PORT</string>
+                <string>$(P)asyn_MOXA_D:9.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -296,7 +296,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:9</string>
+                <string>P=$(P),R=asyn_MOXA_D:9</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -315,7 +315,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:2.PORT</string>
+                <string>$(P)asyn_MOXA_D:2.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -392,7 +392,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:2</string>
+                <string>P=$(P),R=asyn_MOXA_D:2</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -411,7 +411,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:10.PORT</string>
+                <string>$(P)asyn_MOXA_D:10.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -488,7 +488,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:10</string>
+                <string>P=$(P),R=asyn_MOXA_D:10</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -507,7 +507,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:3.PORT</string>
+                <string>$(P)asyn_MOXA_D:3.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -584,7 +584,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:3</string>
+                <string>P=$(P),R=asyn_MOXA_D:3</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -603,7 +603,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:11.PORT</string>
+                <string>$(P)asyn_MOXA_D:11.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -680,7 +680,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:11</string>
+                <string>P=$(P),R=asyn_MOXA_D:11</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -699,7 +699,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:4.PORT</string>
+                <string>$(P)asyn_MOXA_D:4.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -776,7 +776,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:4</string>
+                <string>P=$(P),R=asyn_MOXA_D:4</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -795,7 +795,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:12.PORT</string>
+                <string>$(P)asyn_MOXA_D:12.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -872,7 +872,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:12</string>
+                <string>P=$(P),R=asyn_MOXA_D:12</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -891,7 +891,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:5.PORT</string>
+                <string>$(P)asyn_MOXA_D:5.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -968,7 +968,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:5</string>
+                <string>P=$(P),R=asyn_MOXA_D:5</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -987,7 +987,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:13.PORT</string>
+                <string>$(P)asyn_MOXA_D:13.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1064,7 +1064,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:13</string>
+                <string>P=$(P),R=asyn_MOXA_D:13</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1083,7 +1083,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:6.PORT</string>
+                <string>$(P)asyn_MOXA_D:6.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1160,7 +1160,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:6</string>
+                <string>P=$(P),R=asyn_MOXA_D:6</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1179,7 +1179,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:14.PORT</string>
+                <string>$(P)asyn_MOXA_D:14.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1256,7 +1256,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:14</string>
+                <string>P=$(P),R=asyn_MOXA_D:14</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1275,7 +1275,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:7.PORT</string>
+                <string>$(P)asyn_MOXA_D:7.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1352,7 +1352,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:7</string>
+                <string>P=$(P),R=asyn_MOXA_D:7</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1371,7 +1371,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:15.PORT</string>
+                <string>$(P)asyn_MOXA_D:15.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1448,7 +1448,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:15</string>
+                <string>P=$(P),R=asyn_MOXA_D:15</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1467,7 +1467,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:8.PORT</string>
+                <string>$(P)asyn_MOXA_D:8.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1544,7 +1544,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:8</string>
+                <string>P=$(P),R=asyn_MOXA_D:8</string>
             </property>
             <property name="removeParent">
                 <string>false</string>
@@ -1563,7 +1563,7 @@ caMenu{
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)asyn_MOXA_H:16.PORT</string>
+                <string>$(P)asyn_MOXA_D:16.PORT</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1640,7 +1640,7 @@ caMenu{
                 <string>asynOctet</string>
             </property>
             <property name="args">
-                <string>P=$(P),R=asyn_MOXA_H:16</string>
+                <string>P=$(P),R=asyn_MOXA_D:16</string>
             </property>
             <property name="removeParent">
                 <string>false</string>

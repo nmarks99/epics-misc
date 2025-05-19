@@ -12,7 +12,7 @@ DBD += apdSupport.dbd
 apdSupport_DBD += apd.dbd
 
 # source files to be compiled and added to the library
-apd_SRCS += driver.cpp
+apd_SRCS += apdDriver.cpp
 
 # Libraries needed for apd
 apd_LIBS += asyn
