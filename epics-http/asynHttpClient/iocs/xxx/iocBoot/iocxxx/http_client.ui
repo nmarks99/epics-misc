@@ -121,12 +121,12 @@ caMenu{
      <rect>
       <x>85</x>
       <y>55</y>
-      <width>311</width>
+      <width>411</width>
       <height>20</height>
      </rect>
     </property>
     <property name="channel" stdset="0">
-     <string notr="true">$(P)BaseURL</string>
+     <string notr="true">$(P)FullURL.VAL$</string>
     </property>
     <property name="background">
      <color>
@@ -137,6 +137,9 @@ caMenu{
     </property>
     <property name="colorMode">
      <enum>caLineEdit::Static</enum>
+    </property>
+    <property name="formatType">
+     <enum>caLineEdit::string</enum>
     </property>
    </widget>
    <widget class="caLabel" name="caLabel_45">
@@ -182,29 +185,6 @@ caMenu{
      <enum>QFrame::NoFrame</enum>
     </property>
    </widget>
-   <widget class="caTextEntry" name="catextentry_5">
-    <property name="geometry">
-     <rect>
-      <x>85</x>
-      <y>80</y>
-      <width>311</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="channel" stdset="0">
-     <string notr="true">$(P)Endpoint</string>
-    </property>
-    <property name="background">
-     <color>
-      <red>115</red>
-      <green>223</green>
-      <blue>255</blue>
-     </color>
-    </property>
-    <property name="colorMode">
-     <enum>caLineEdit::Static</enum>
-    </property>
-   </widget>
    <widget class="caMessageButton" name="camessagebutton">
     <property name="geometry">
      <rect>
@@ -215,10 +195,10 @@ caMenu{
      </rect>
     </property>
     <property name="text">
-     <string>GET</string>
+     <string>Execute</string>
     </property>
     <property name="channel" stdset="0">
-     <string notr="true">$(P)GET.PROC</string>
+     <string notr="true">$(P)Execute.PROC</string>
     </property>
     <property name="background">
      <color>
@@ -261,50 +241,7 @@ caMenu{
      </font>
     </property>
     <property name="text">
-     <string>Base URL:</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-    <property name="fontScaleMode">
-     <enum>ESimpleLabel::WidthAndHeight</enum>
-    </property>
-    <property name="foreground">
-     <color>
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="background">
-     <color alpha="0">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-   </widget>
-   <widget class="caLabel" name="caLabel_47">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>71</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Endpoint:</string>
+     <string>URL:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -373,9 +310,146 @@ caMenu{
      <enum>QFrame::NoFrame</enum>
     </property>
    </widget>
+   <widget class="caMenu" name="camenu">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>90</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="channel" stdset="0">
+     <string notr="true">$(P)HTTPMethod</string>
+    </property>
+    <property name="colorMode">
+     <enum>caMenu::Static</enum>
+    </property>
+   </widget>
+   <widget class="caLabel" name="caLabel_47">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Method:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="fontScaleMode">
+     <enum>ESimpleLabel::WidthAndHeight</enum>
+    </property>
+    <property name="foreground">
+     <color>
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="background">
+     <color alpha="0">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+   </widget>
+   <widget class="caLineEdit" name="calineedit">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>125</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="channel" stdset="0">
+     <string notr="true">$(P)StatusCode.VAL</string>
+    </property>
+    <property name="foreground">
+     <color>
+      <red>0</red>
+      <green>0</green>
+      <blue>255</blue>
+     </color>
+    </property>
+    <property name="background">
+     <color>
+      <red>218</red>
+      <green>218</green>
+      <blue>218</blue>
+     </color>
+    </property>
+    <property name="colorMode">
+     <enum>caLineEdit::Static</enum>
+    </property>
+   </widget>
+   <widget class="caLabel" name="caLabel_49">
+    <property name="geometry">
+     <rect>
+      <x>385</x>
+      <y>125</y>
+      <width>56</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Status:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="fontScaleMode">
+     <enum>ESimpleLabel::WidthAndHeight</enum>
+    </property>
+    <property name="foreground">
+     <color>
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="background">
+     <color alpha="0">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>caMenu</class>
+   <extends>QComboBox</extends>
+   <header>caMenu</header>
+  </customwidget>
   <customwidget>
    <class>caTextEntry</class>
    <extends>caLineEdit</extends>
