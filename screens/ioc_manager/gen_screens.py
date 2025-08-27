@@ -20,10 +20,12 @@ iocs = {
     f"{ioc_dir}/4idbPostToroBeam" : "soft",
     f"{ioc_dir}/4idgSoft"         : "soft",
     f"{ioc_dir}/4idgSoftX"        : "soft",
+    f"{ioc_dir}/4idgKB"           : "soft",
     f"{ioc_dir}/4idPyCrl"         : "soft",
     f"{ioc_dir}/4idPyFilter"      : "soft",
     f"{ioc_dir}/4idgSydor"        : "soft",
     f"{ioc_dir}/4idhSoft"         : "soft",
+    f"{ioc_dir}/4idhSydor"        : "soft",
     f"{ioc_dir}/4idh"             : "vme",
     f"{ioc_dir}/4idBLEPS"         : "soft",
 }

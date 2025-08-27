@@ -4,11 +4,11 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Quickly get information from an EPICS database')
-    parser.add_argument('path', help='Path to the database file')
+    parser.add_argument('database', help='Path to the database file')
     parser.add_argument('record', nargs='?', help='Record name to find and print infomation about')
     args = parser.parse_args()
 
-    db = EPICSDatabase(args.path)
+    db = EPICSDatabase(args.database)
 
     if args.record is not None:
         r = db.find(args.record)
