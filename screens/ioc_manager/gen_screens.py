@@ -17,6 +17,7 @@ iocs = {
     f"{ioc_dir}/4idaPostMonoBeam" : "soft",
     f"{ioc_dir}/4idb"             : "vme",
     f"{ioc_dir}/4idbSoft"         : "soft",
+    f"{ioc_dir}/4idbToro"         : "soft",
     f"{ioc_dir}/4idbPostToroBeam" : "soft",
     f"{ioc_dir}/4idgSoft"         : "soft",
     f"{ioc_dir}/4idgSoftX"        : "soft",
