@@ -43,6 +43,15 @@ local function strip_whitespace(str)
     return cleaned
 end
 
+local function max_table(t1, t2)
+    assert(#t1 == #t2, "tables must be the same length")
+    local tout = {}
+    for i = 1, #t1 do
+	tout[i] = t1[i] > t2[i] and t1[i] or t2[i]
+    end
+    return tout
+end
+
 -- get start and end indices of data sections
 local lines = {}
 for line in subs_file_text:gmatch("[^\r\n]+") do
@@ -52,6 +61,7 @@ end
 
 local data_lines = {}
 local col_widths = {}
+local i_data = 0
 local in_data_block = false
 for i, line in ipairs(lines) do
     data_lines[i] = false
@@ -61,118 +71,47 @@ for i, line in ipairs(lines) do
             data_lines[i] = false
         else
             data_lines[i] = true
-            -- if #col_widths == 0 then
-                -- for field in line:gmatch("[^%s,]+") do
-                    -- table.insert(col_widths, #strip_whitespace(field))
-                -- end
-            -- end
+	    local col_widths_i = {}
+	    for field in line:gmatch("[^,{}]+") do
+		local len = #strip_whitespace(field)
+		table.insert(col_widths_i, len)
+	    end
+	    -- col_widths[i] =  col_widths_i
+	    if col_widths[i_data] then
+		col_widths[i_data] =  max_table(col_widths_i, col_widths[i_data])
+	    else
+		col_widths[i_data] =  col_widths_i
+	    end
         end
     end
 
     if line:find("pattern") then
         in_data_block = true
+	i_data = i_data + 1
     end
 end
 
+local i_data = 1
+local in_data_block = false
 for i, line in ipairs(lines) do
     if data_lines[i] then
-        for field in line:gmatch("[^%s,]+") do
-            io.write(field, ",")
-        end
-        io.write("\n")
+	in_data_block = true
+	local j = 1
+	io.write("{")
+	for field in line:gmatch("[^,{}]+") do
+	    local pad = string.rep(" ", col_widths[i_data][j] - #strip_whitespace(field))
+	    io.write(pad .. strip_whitespace(field) .. ",  ")
+	    j = j + 1
+	end
+	-- io.write("    ")
+	-- for _, v in ipairs(col_widths[i_data]) do
+	    -- io.write(v, ",")
+	-- end
+	io.write("\n")
+    else
+	if in_data_block then
+	    i_data = i_data + 1
+	end
+	in_data_block = false
     end
 end
-
--- for _, di in ipairs(data_indices) do
-    -- for i = di[1], di[2] do
-        -- print(lines[i])
-    -- end
-    -- io.write("\n")
--- end
-
-
--- local function strip_whitespace(str)
-    -- local cleaned = str:gsub("^%s+", ""):gsub("%s+$", "")
-    -- return cleaned
--- end
---
--- local function parse(str)
---
-    -- local lines = {}
-    -- for line in subs_file_text:gmatch("[^\r\n]+") do
-        -- table.insert(lines, line)
-    -- end
---
-    -- local db_files = {}
-    -- local patterns = {}
-    -- local data = {}
-    -- local data_indices = {} -- {data start, data end}
-    -- local looking_for_data_end = 0
-    -- for i, line in ipairs(lines) do
-        -- if line:find("file") then
-            -- table.insert(db_files, line:match('"([^"]*)"'))
-        -- end
-        -- if line:find("pattern") then
-            -- table.insert(patterns, lines[i+1])
-            -- table.insert(data_indices, {i+1, nil})
-            -- looking_for_data_end = 1
-        -- end
-        -- if looking_for_data_end > 0 then
-            -- if looking_for_data_end > 2 then
-                -- local line_strip = line:gsub("^%s+", ""):gsub("%s+$", "");
-                -- if line_strip == "}" then
-                    -- data_indices[#data_indices][2] = i-1
-                    -- looking_for_data_end = 0
-                -- end
-            -- else
-                -- looking_for_data_end = looking_for_data_end + 1
-            -- end
-        -- end
-    -- end
---
-    -- for i, inds in ipairs(data_indices) do
-        -- local data_tmp = {}
-        -- for j = inds[1], inds[2] do
-            -- table.insert(data_tmp, lines[j])
-        -- end
-        -- table.insert(data, data_tmp)
-    -- end
---
-    -- local blocks = {}
-    -- for i = 1, #data do
-        -- table.insert(blocks, {
-            -- file = db_files[i],
-            -- pattern = patterns[i],
-            -- data = data[i]
-        -- })
-    -- end
-    -- return blocks
---
--- end
---
--- local subs = parse(subs_file_text)
---
--- local col_widths = {}
--- local fields = {}
--- for _, line in ipairs(subs[2].data) do
-    -- if #col_widths == 0 then
-        -- for field in line:gmatch("[^,\r\n{}]+") do
-            -- table.insert(col_widths, #strip_whitespace(field))
-        -- end
-    -- else
-        -- local i = 1
-        -- for field in line:gmatch("[^,\r\n{}]+") do
-            -- local len = #strip_whitespace(field)
-            -- if len > col_widths[i] then
-                -- col_widths[i] = len
-            -- end
-            -- i = i + 1
-        -- end
-    -- end
--- end
---
--- for _, row in ipairs(subs[2].data) do
-    -- for field in row:gmatch("[^%s,\r\n{}]+") do
-        -- print(field)
-    -- end
--- end
