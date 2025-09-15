@@ -44,26 +44,9 @@ local function strip_whitespace(str)
 end
 
 -- get start and end indices of data sections
-local data_indices = {}
 local lines = {}
-local lineno = 1
 for line in subs_file_text:gmatch("[^\r\n]+") do
     table.insert(lines, line)
-    if line:find("pattern") then
-       table.insert(data_indices, {lineno+1, nil})
-    end
-
-    if #data_indices > 0 then
-        local last = data_indices[#data_indices]
-        if last[1] ~= nil and last[2] == nil then
-            if strip_whitespace(line) == "}" then
-                last[2] = lineno-1
-            end
-            data_indices[#data_indices] = last
-        end
-    end
-
-    lineno = lineno + 1
 end
 
 
