@@ -18,7 +18,7 @@ local function parse(text)
     -- get start and end indices of data sections
     local lines = {}
     for line in text:gmatch("[^\r\n]+") do
-	table.insert(lines, line)
+	table.insert(lines, strip_whitespace(line))
     end
 
     local data_lines = {}
@@ -47,8 +47,10 @@ local function parse(text)
 	end
 
 	if line:find("pattern") then
-	    in_data_block = true
-	    i_data = i_data + 1
+            if line:match("^%s*#") == nil then
+		in_data_block = true
+		i_data = i_data + 1
+	    end
 	end
     end
 
