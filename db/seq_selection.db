@@ -1,0 +1,36 @@
+record(mbbo, "Choices") {
+    field(ZRVL, 0)
+    field(ZRST, "Zero")
+    field(ONVL, 1)
+    field(ONST, "One")
+    field(TWVL, 2)
+    field(TWST, "Two")
+    field(FLNK, "calc_seln.PROC")
+}
+
+record(calcout,  "calc_seln") {
+    field(INPA, "Choices.VAL")
+    field(CALC, "(1<<A)")
+    field(OUT, "seq_choice.SELN")
+    field(FLNK, "seq_choice.PROC")
+}
+
+
+record(seq, "seq_choice") {
+    field(SELM, "Mask")
+    field(SHFT, 0)
+
+    field(DOL0, 11)
+    field(LNK0, "Value1.VAL PP")
+
+    field(DOL1, 22)
+    field(LNK1, "Value2.VAL PP")
+
+    field(DOL2, 33)
+    field(LNK2, "Value3.VAL PP")
+}
+
+record(longout, "Value1") {}
+record(longout, "Value2") {}
+record(longout, "Value3") {}
+
