@@ -19,7 +19,8 @@
 
 extern DBBASE *pdbbase;
 
-long dbWriteRecordInstanceFP(DBBASE *pdbbase, FILE *fp, const char *precordName, int level) {
+// mostly copied from dbWriteRecord from dbStaticLib.h
+long db_write_record_instance(DBBASE *pdbbase, const char *precordName, int level) {
     DBENTRY dbentry;
     DBENTRY *pdbentry=&dbentry;
     long    status;
@@ -39,23 +40,17 @@ long dbWriteRecordInstanceFP(DBBASE *pdbbase, FILE *fp, const char *precordName,
     } else {
         status = dbFindRecord(pdbentry, precordName);
         if(status) {
-            fprintf(stderr, "dbWriteRecordInstanceFP: No record named %s found\n", precordName);
+	    printf("dbWriteRecordInstanceFP: No record named %s found\n", precordName);
             dbFinishEntry(pdbentry);
             return status;
         }
     }
 
     if (!status) {
-	// TODO:
-	// if (dbIsAlias(pdbentry)) {
-	    // // status = dbNextRecord(pdbentry);
-	    // // continue;
-	// }
-
 	if(dbIsVisibleRecord(pdbentry)) {
-	    fprintf(fp,"grecord(%s, \"%s\") {\n", dbGetRecordTypeName(pdbentry), dbGetRecordName(pdbentry));
+	    printf("grecord(%s, \"%s\") {\n", dbGetRecordTypeName(pdbentry), dbGetRecordName(pdbentry));
 	} else {
-	    fprintf(fp,"record(%s, \"%s\") {\n", dbGetRecordTypeName(pdbentry), dbGetRecordName(pdbentry));
+	    printf("record(%s, \"%s\") {\n", dbGetRecordTypeName(pdbentry), dbGetRecordName(pdbentry));
 	}
 
 	status = dbFirstField(pdbentry, dctonly);
@@ -64,14 +59,17 @@ long dbWriteRecordInstanceFP(DBBASE *pdbbase, FILE *fp, const char *precordName,
 		char *pvalstring = dbGetString(pdbentry);
 
 		if (!pvalstring) {
-		    fprintf(fp, "    field(%s, \"\")\n", dbGetFieldName(pdbentry));
+		    printf("    field(%s, \"\")\n", dbGetFieldName(pdbentry));
 		} else {
-		    fprintf(fp, "    field(%s, \"", dbGetFieldName(pdbentry));
-		    epicsStrPrintEscaped(fp, pvalstring, strlen(pvalstring));
-		    fprintf(fp, "\")\n");
+		    // don't show UDF field. Are there others we want to ignore?
+		    if (strcmp(dbGetFieldName(pdbentry), "UDF") != 0) {
+			printf("    field(%s, \"", dbGetFieldName(pdbentry));
+			epicsStrPrintEscaped(stdout, pvalstring, strlen(pvalstring));
+			printf("\")\n");
+		    }
 		}
 	    } else if (level>0) {
-		fprintf(fp,"    field(%s, \"\")\n", dbGetFieldName(pdbentry));
+		printf("    field(%s, \"\")\n", dbGetFieldName(pdbentry));
 	    }
 	    status = dbNextField(pdbentry, dctonly);
 	}
@@ -79,29 +77,17 @@ long dbWriteRecordInstanceFP(DBBASE *pdbbase, FILE *fp, const char *precordName,
 	status = dbFirstInfo(pdbentry);
 	while (!status) {
 	    const char *pinfostr = dbGetInfoString(pdbentry);
-	    fprintf(fp, "    info(\"%s\", \"", dbGetInfoName(pdbentry));
-	    epicsStrPrintEscaped(fp, pinfostr, strlen(pinfostr));
-	    fprintf(fp, "\")\n");
+	    printf("    info(\"%s\", \"", dbGetInfoName(pdbentry));
+	    epicsStrPrintEscaped(stdout, pinfostr, strlen(pinfostr));
+	    printf("\")\n");
 	    status = dbNextInfo(pdbentry);
 	}
-	fprintf(fp,"}\n");
+	printf("}\n");
     }
-
-    // while (!status) {
-	// if (!dbIsAlias(pdbentry)) {
-	    // break;
-	    // // status = dbNextRecord(pdbentry);
-	    // // continue;
-	// }
-	// fprintf(fp, "alias(\"%s\",\"%s\")\n",
-	    // dbRecordName(pdbentry), dbGetRecordName(pdbentry));
-	// // status = dbNextRecord(pdbentry);
-    // }
 
     dbFinishEntry(pdbentry);
     return 0;
 }
-
 
 class MacWrapper {
   public:
@@ -153,6 +139,10 @@ class MacWrapper {
 };
 
 void dbsave(const char *filename, const char *substitutions) {
+    if (filename == nullptr) {
+	printf("Usage: \".db file path\", \"macro substitutions\"\n");
+	return;
+    }
 
     std::ifstream fs(filename);
     if (!fs.is_open()) {
@@ -173,12 +163,11 @@ void dbsave(const char *filename, const char *substitutions) {
 	    auto ind1 = line.find_last_of('"');
 	    record_name = line.substr(ind0+1, ind1-ind0-1);
 	    if (auto expanded = mac.expand(record_name.c_str()); expanded.has_value()) {
-		dbWriteRecordInstanceFP(pdbbase, stdout, expanded.value().c_str(), 0);
+		db_write_record_instance(pdbbase, expanded.value().c_str(), 0);
 	    }
 	}
     }
 }
-
 
 extern "C" void dbsave_cfunc(const char *filename, const char *macros) {
     dbsave(filename, macros);
