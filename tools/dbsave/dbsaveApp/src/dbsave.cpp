@@ -40,7 +40,7 @@ long db_write_record_instance(DBBASE *pdbbase, const char *precordName, int leve
     } else {
         status = dbFindRecord(pdbentry, precordName);
         if(status) {
-	    printf("dbWriteRecordInstanceFP: No record named %s found\n", precordName);
+	    printf("db_write_record_instance: No record named %s found\n", precordName);
             dbFinishEntry(pdbentry);
             return status;
         }
