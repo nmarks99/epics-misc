@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+../../bin/rhel9-x86_64/testIOC st.cmd
