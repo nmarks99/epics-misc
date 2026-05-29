@@ -1,0 +1,84 @@
+record(luascript, "$(P)StartJog") {
+    field(CODE, "print('Starting jog')")
+    field(FLNK, "$(P)start_jog_seq_.PROC")
+}
+record(seq, "$(P)start_jog_seq_") {
+    field(DOL0, 1)
+    field(LNK0, "$(P)jog_timer:start.VAL PP")
+    field(DOL1, 1)
+    field(LNK1, "$(P)Jogging.VAL PP")
+}
+record(bo, "$(P)Jogging") {
+    field(ZNAM, "Done")
+    field(ONAM, "Jogging")
+}
+
+record(luascript, "$(P)StopJog") {
+    field(CODE, "print('Stopping jog')")
+    field(FLNK, "$(P)set_jogging_done.PROC")
+}
+record(bo, "$(P)set_jogging_done") {
+    field(VAL, 0)
+    field(OUT, "$(P)Jogging.VAL PP")
+}
+
+record(calcout, "$(P)jog_timer:count") {
+  field(DESC, "Up/Down Counter")
+  field(INPA, "$(P)jog_timer:start")
+  field(INPC, "$(P)jog_timer:count.VAL")
+  field(CALC, "A?C-0.1:C")
+  field(PREC, 3)
+}
+
+record(calcout, "$(P)jog_timer:trigger") {
+  field(DESC, "Trigger Set")
+  field(INPA, "$(P)jog_timer:stop_start NPP NMS")
+  field(CALC, "!A")
+  field(OOPT, "Transition To Non-zero")
+  field(OUT, "$(P)StopJog.PROC")
+}
+
+record(calcout, "$(P)jog_timer:count_reset") {
+  field(DESC, "Reset Count and Start")
+  field(INPA, "$(P)jog_timer:start")
+  field(INPC, "$(P)jog_timer:count")
+  field(INPD, "$(P)jog_timer:reset")
+  field(CALC, "A ? D : C")
+  field(OUT, "$(P)jog_timer:count.VAL NPP NMS")
+  field(FLNK, "$(P)jog_timer:stop_start.VAL PP NMS")
+}
+
+record(calcout, "$(P)jog_timer:stop_start") {
+  field(DESC, "Stop/Start Counter")
+  field(SCAN, "Passive")
+  field(INPA, "$(P)jog_timer:count.VAL CP NMS")
+  field(INPC, "$(P)jog_timer:reset NPP NMS")
+  field(INPD, "$(P)jog_timer:start")
+  field(CALC, "D&A>0?9:0")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)jog_timer:count.SCAN NPP NMS")
+  field(FLNK, "$(P)jog_timer:trigger.PROC")
+}
+
+record(calcout, "$(P)jog_timer:reset") {
+  field(DESC, "Timer Reset")
+  field(SCAN, "Passive")
+  field(INPC, "$(P)jog_timer:JogTimeout CP NMS")
+  field(CALC, "C")
+}
+
+record(bo, "$(P)jog_timer:start") {
+  field(DESC, "Start timer")
+  field(SCAN, "Passive")
+  field(DTYP, "Soft Channel")
+  field(ZNAM, "Stop")
+  field(ONAM, "Start")
+  field(FLNK, "$(P)jog_timer:count_reset")
+}
+
+record(ao, "$(P)jog_timer:JogTimeout") {
+  field(SCAN, "Passive")
+  field(DTYP, "Soft Channel")
+  field(PREC, 3)
+  field(VAL, 1.0)
+}
