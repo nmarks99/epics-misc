@@ -40,6 +40,13 @@ ifdef LUA
   $(PROD_NAME)_LIBS := lua $($(PROD_NAME)_LIBS)
 endif
 
+ifdef BUSY
+  ifndef ADCORE
+    $(DBD_NAME)_DBD += busySupport.dbd
+  endif
+  $(PROD_NAME)_LIBS := busy $($(PROD_NAME)_LIBS)
+endif
+
 ifdef SIMPLE_APD
   $(DBD_NAME)_DBD += apdSupport.dbd
   $(PROD_NAME)_LIBS := apd $($(PROD_NAME)_LIBS)

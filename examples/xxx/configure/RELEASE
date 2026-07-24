@@ -4,8 +4,9 @@
 ##############################################################################
 
 SUPPORT = /usr/local/epics/synApps_6_3/support
-EPICS_BASE = /usr/local/epics/base-7.0.8
+EPICS_BASE = /usr/local/epics/base-7.0.8.1
 LUA = $(SUPPORT)/lua-R3-1/
+BUSY = $(SUPPORT)/busy-R1-7-4
 ASYN = $(SUPPORT)/asyn-R4-44-2
 SIMPLE_APD = $(TOP)/apd
 

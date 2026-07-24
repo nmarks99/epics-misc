@@ -40,15 +40,18 @@ void SimpleApd::poll() {
             std::cout << "Elapsed: " << elap_ms << " ms" << std::endl;
             if (elap_ms >= PROCESS_DURATION) {
                 setIntegerParam(doneIndex_, 1);
+                setIntegerParam(startProcessIndex_, 0);
+                callParamCallbacks();
                 std::cout << "Process Done" << std::endl;
                 running_ = false;
             }
         } else {
             setIntegerParam(doneIndex_, 1);
+            callParamCallbacks();
         }
-            
 
-        callParamCallbacks();
+
+        // callParamCallbacks();
         unlock();
         epicsThreadSleep(poll_time_);
     }
@@ -60,15 +63,28 @@ asynStatus SimpleApd::writeInt32(asynUser *pasynUser, epicsInt32 value) {
     asynStatus status = asynSuccess;
 
     if (function == startProcessIndex_) {
-        if (not running_) {
-            std::cout << "Starting process [" << value << "]" << std::endl;
-            running_ = true;
-            this->t0_ = std::chrono::steady_clock::now();
-        } else {
-            std::cout << "Please wait for previous process to finish" << std::endl;
+        std::cout << "startProcessIndex_ called\n";
+        if (value == 1) {
+            if (!running_) {
+                std::cout << "Starting process [" << value << "]" << std::endl;
+                running_ = true;
+                this->t0_ = std::chrono::steady_clock::now();
+
+                setIntegerParam(doneIndex_, 0);
+                setIntegerParam(startProcessIndex_, 1);
+            } else {
+                std::cout << "Process already running. Ignoring request." << std::endl;
+                // Instantly return 0 to reset caller if rejected
+                setIntegerParam(startProcessIndex_, 0);
+            }
+            callParamCallbacks();
+        } else if (value == 0) {
+            // Handle the write 0 sent by busy record upon completion
+            setIntegerParam(startProcessIndex_, 0);
+            callParamCallbacks();
         }
     }
-    
+
     return status;
 }
 

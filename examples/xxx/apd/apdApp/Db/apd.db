@@ -6,9 +6,19 @@ record(bi, "$(P)Done")
     field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT=1))DONE")
     field(VAL, 1)
     field(SCAN, "I/O Intr")
+    # field(FLNK, "$(P)clear_busy.PROC")
 }
 
-record(longout, "$(P)StartProcess") {
+# record(calcout, "$(P)clear_busy") {
+    # field(INPA, "$(P)Done")
+    # field(CALC, "A")
+    # field(OOPT, "When Non-zero")
+    # field(DOPT, "Use OCAL")
+    # field(OCAL, 0)
+    # field(OUT, "$(P)StartProcess PP")
+# }
+
+record(busy, "$(P)StartProcess") {
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT=1))START_PROCESS")
 }
