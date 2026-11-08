@@ -1,3 +1,4 @@
 local pvxs = require("pvxs_lua")
 
-pvxs.get("myvalue")
+local value = pvxs.get("myvalue")
+print(value["value"])
