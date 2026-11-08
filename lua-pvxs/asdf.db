@@ -1,0 +1,4 @@
+record(ao, "myvalue") {
+    field(VAL, 3.14159)
+    field(EGU, 3)
+}

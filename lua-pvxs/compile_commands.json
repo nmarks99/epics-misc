@@ -1,0 +1,21 @@
+[
+  {
+    "file": "./pvxs_lua.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-fPIC",
+      "-I.",
+      "-I./lua-5.4.9/src/",
+      "-I/home/nick/.local/epics/base/include",
+      "-I/home/nick/.local/epics/base/include/compiler/gcc",
+      "-I/home/nick/.local/epics/base/include/os/Linux",
+      "-I/home/nick/.local/epics/pvxs/include",
+      "./pvxs_lua.cpp",
+      "-o",
+      "pvxs_lua.so"
+    ],
+    "directory": "/home/nick/devel/lua-cpp-test",
+    "output": "pvxs_lua.so"
+  }
+]
